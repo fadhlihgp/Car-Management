@@ -11,14 +11,6 @@ export class CarRepository {
         return await CarModel.query().findById(id);
     }
 
-    async filterBySize(size: string): Promise<CarModel[]> {
-        return await CarModel.query().where('size', 'like', `%${size}%`).select();
-    }
-
-    async filterByName(name: string): Promise<CarModel[]> {
-        return await CarModel.query().where('name', 'like', `%${name}%`).select();
-    }
-
     async create(car: Partial<CarModel>): Promise<CarModel> {
         return await CarModel.query().insert(car);
     }
