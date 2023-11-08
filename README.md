@@ -13,7 +13,7 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 - #### Create Car
   [post] http://localhost:7000/api/v1/car
 
-* Request
+=> Request
 
 ```json
 {
@@ -24,7 +24,7 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 }
 ```
 
-- Response
+=> Response
 
 ```json
 {
@@ -43,7 +43,7 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 - #### Update Car
   [put] http://localhost:7000/api/v1/car/:id
 
-* Request
+=> Request
 
 ```json
 {
@@ -54,7 +54,7 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 }
 ```
 
-- Response
+=> Response
 
 ```json
 {
@@ -74,7 +74,7 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 
 [get] http://localhost:7000/api/v1/car
 
-- Response
+=> Response
 
 ```json
 {
@@ -112,7 +112,7 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 
 [get] http://localhost:7000/api/v1/car?size=large
 
-- response
+=> response
 
 ```json
 {
@@ -142,7 +142,7 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 
 [get] http://localhost:7000/api/v1/car?name=xenia
 
-- response
+=> response
 
 ```json
 {
@@ -164,7 +164,7 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 
 [get] http://localhost:7000/api/v1/car?name=luxio&size=large
 
-- response
+=> response
 
 ```json
 {
@@ -182,13 +182,34 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 }
 ```
 
-- #### Delete Car
-  [delete] http://localhost:7000/api/v1/car/774358bf-5e02-4715-83f2-20a8aae8a7bc
+#### Delete Car
 
-* Response
+[delete] http://localhost:7000/api/v1/car/774358bf-5e02-4715-83f2-20a8aae8a7bc
+
+=> Response
 
 ```json
 {
   "message": "Data berhasil dihapus"
+}
+```
+
+#### Upload Photo
+
+[post] http://localhost:7000/api/v1/photo/upload
+=> Request
+
+```json
+form-data:
+key: picture
+value: photo file
+```
+
+=> Response
+
+```json
+{
+  "message": "Upload success",
+  "url": "https://res.cloudinary.com/do5gw4vcx/image/upload/v1699175182/e0aotiuguzv69wdx12xc.png",
 }
 ```

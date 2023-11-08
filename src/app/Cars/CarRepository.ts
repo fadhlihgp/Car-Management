@@ -1,9 +1,8 @@
-import { Request, Response, NextFunction } from "express";
 import { CarModel } from "./CarModel";
 
 export class CarRepository {
 
-    async getAll(size?: string, name?: string): Promise<CarModel[]> {
+    async getAll(): Promise<CarModel[]> {
         return await CarModel.query();
     }
 

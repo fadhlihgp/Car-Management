@@ -3,17 +3,23 @@ import { CarRepository } from "./CarRepository";
 import { CarModel } from "./CarModel";
 import { NotFoundException } from "../../exceptions/NotFoundException";
 import { CarRequestDto } from "./CarDto";
+import { Repository } from "../Repositories/Repository";
 const { v4: uuidv4 } = require("uuid");
 
-const carRepo = new CarRepository();
+const carRepo: Repository<CarModel> = new Repository(CarModel);
 
 export class CarService {
   async getAll(): Promise<CarModel[]> {
-    return await carRepo.getAll();
+    
+    const criteria = {
+      is_deleted: false
+    }
+
+    return await carRepo.findAllWithCriteria(criteria);
   }
 
   async getById(id: string, next: NextFunction): Promise<any> {
-    const car = await carRepo.getById(id);
+    const car = await carRepo.findById(id);
     if (!car) {
       throw new NotFoundException("Data mobil tidak ditemukan");
     } else {
@@ -24,14 +30,12 @@ export class CarService {
   async create(carRequest: CarRequestDto): Promise<CarModel> {
     try {
       const car: Partial<CarModel> = {
-        id: uuidv4(),
         name: carRequest.name,
         price: carRequest.price,
         size: carRequest.size,
-        picture: carRequest.picture,
-        updated: new Date(),
+        picture_url: carRequest.picture ?? ""
       };
-      return await carRepo.create(car);
+      return await carRepo.save(car);
     } catch (error) {
       throw new Error(`${error}`);
     }
@@ -44,8 +48,8 @@ export class CarService {
       carUpdate.name = carRequest.name;
       carUpdate.price = carRequest.price;
       carUpdate.size = carRequest.size;
-      carUpdate.picture = carRequest.picture ?? carUpdate.picture;
-      carUpdate.updated = new Date();
+      carUpdate.picture_url = carRequest.picture ?? carUpdate.picture_url;
+      carUpdate.updated_at = new Date();
 
       return await carRepo.update(id, carUpdate);
     } catch (error) {
