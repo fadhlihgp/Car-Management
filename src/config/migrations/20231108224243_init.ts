@@ -30,8 +30,8 @@ export async function up(knex: Knex): Promise<void> {
       table.integer("capacity").notNullable();
       table.text("description");
       table.text("picture_url");
-      table.timestamp("available_at", { useTz: false }).defaultTo(knex.fn.now());
-      table.timestamp("updated_at", { useTz: false }).defaultTo(knex.fn.now());
+      table.timestamp("available_at", { useTz: true }).defaultTo(knex.fn.now());
+      table.timestamp("updated_at", { useTz: true }).defaultTo(knex.fn.now());
       table.boolean("is_deleted").defaultTo(false);
       table.string("car_brand_id", 255);
       table.string("car_type_id", 255);

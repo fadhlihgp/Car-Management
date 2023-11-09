@@ -1,5 +1,7 @@
 import { Model, ModelObject } from "objection";
 import { CarBrandModel } from "./../CarBrands/CarBrandModel";
+import CarTransmissionModel from "../CarTransamissions/CarTransmissionModel";
+import { CarTypeModel } from "../CarTypes/CarTypeModel";
 
 export class CarModel extends Model {
   id!: string;
@@ -29,7 +31,7 @@ export class CarModel extends Model {
     },
     carTransmission: {
       relation: Model.BelongsToOneRelation,
-      modelClass: CarBrandModel,
+      modelClass: CarTransmissionModel,
       join: {
         from: "car.car_transmission_id",
         to: "car_transmission.id",
@@ -37,7 +39,7 @@ export class CarModel extends Model {
     },
     carType: {
       relation: Model.BelongsToOneRelation,
-      modelClass: CarBrandModel,
+      modelClass: CarTypeModel,
       join: {
         from: "car.car_type_id",
         to: "car_type.id",

@@ -2,7 +2,7 @@ import express, { Express, Response, Request } from "express";
 import knex, { Knex } from "knex";
 import { Model } from "objection";
 import carRouter from "./app/Cars/CarRoute";
-import errorHandler from "./middlewares/errorhandler";
+import errorhandler from "./middlewares/errorhandler";
 import notFound from "./exceptions/404"
 import knexInstance from "./config/KnexInstance";
 import carBrandRouter from "./app/CarBrands/CarBrandRoute";
@@ -31,7 +31,7 @@ app.post("/api/v1/photo/upload", upload.single("picture"), uploadService);
 
 // ################## Handle Error ###################
 app.use(notFound);
-app.use(errorHandler);
+app.use(errorhandler);
 // ==================================================
 
 app.listen(port, (): void => {

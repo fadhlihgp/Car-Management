@@ -21,15 +21,26 @@ export class CarBrandService {
   }
 
   async create(carBrandReq: CarBrandReqDto): Promise<CarBrandModel> {
-    const brand: Partial<CarBrandModel> = {
-      name: carBrandReq.name,
-    };
-    return await this.carBrandRepo.save(brand);
+    try {
+      const brand: Partial<CarBrandModel> = {
+        name: carBrandReq.name,
+      };
+      return await this.carBrandRepo.save(brand);
+    } catch (error) {
+      throw new Error(`${error}`);
+    }
+    
   }
 
   async update(id: string, carBrandReq: CarBrandReqDto): Promise<CarBrandModel> {
     let carBrand = await this.getById(id);
-    carBrand.name = carBrandReq.name;
-    return await this.carBrandRepo.update(id, carBrand);
+
+    try {
+      carBrand.name = carBrandReq.name;
+      return await this.carBrandRepo.update(id, carBrand);
+    } catch (error) {
+      throw new Error(`${error}`);
+    }
+    
   }
 }
