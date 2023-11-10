@@ -2,6 +2,8 @@ import { CarBrand, CarBrandModel } from "./CarBrandModel";
 import { Repository } from "../Repositories/Repository";
 import { CarBrandReqDto } from "./CarBrandDto";
 import { NotFoundException } from "../../exceptions/NotFoundException";
+import executeTransactionAsync from "../Repositories/ExecuteTransactionAsync";
+const { v4: uuidv4 } = require("uuid");
 
 export class CarBrandService {
   private carBrandRepo: Repository<CarBrandModel>;
@@ -21,26 +23,22 @@ export class CarBrandService {
   }
 
   async create(carBrandReq: CarBrandReqDto): Promise<CarBrandModel> {
-    try {
+    const result = await executeTransactionAsync(async() => {
       const brand: Partial<CarBrandModel> = {
+        id: uuidv4(),
         name: carBrandReq.name,
       };
       return await this.carBrandRepo.save(brand);
-    } catch (error) {
-      throw new Error(`${error}`);
-    }
-    
+    })
+    return result;
   }
 
   async update(id: string, carBrandReq: CarBrandReqDto): Promise<CarBrandModel> {
-    let carBrand = await this.getById(id);
-
-    try {
+    const result = await executeTransactionAsync(async() => {
+      let carBrand = await this.getById(id);
       carBrand.name = carBrandReq.name;
       return await this.carBrandRepo.update(id, carBrand);
-    } catch (error) {
-      throw new Error(`${error}`);
-    }
-    
+    })
+    return result
   }
 }

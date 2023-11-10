@@ -6,9 +6,7 @@ import { CarTypeService } from "./CarTypeService";
 const carTypeService = new CarTypeService();
 class CarTypeController {
     async getAll(req: Request, res: Response, next: NextFunction) {
-
         const carBrand = await carTypeService.getAll();
-    
         res.status(200).json({
           message: "Berhasil mendapatkan data tipe mobil",
           data: carBrand,
@@ -30,7 +28,6 @@ class CarTypeController {
       async create(req: Request, res: Response, next: NextFunction) {
         try {
           const createBrand: CarTypeReqDto = req.body;
-    
           res.status(201).json({
             message: "Berhasil membuat data tipe mobil",
             data: await carTypeService.create(createBrand),

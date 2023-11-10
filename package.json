@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./dist/index.js",
     "build": "npx tsc",
-    "dev": "nodemon -r dotenv/config ./src/index.ts"
+    "dev": "nodemon -r dotenv/config ./src/index.ts",
+    "migrate:make": "npx knex --knexfile ./src/config/knexfile.ts migrate:make",
+    "migrate:latest": "npx knex --knexfile ./src/config/knexfile.ts migrate:latest",
+    "seed:run": "npx knex --knexfile ./src/config/knexfile.ts seed:run"
   },
   "keywords": [],
   "author": "",
