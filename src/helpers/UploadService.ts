@@ -1,10 +1,12 @@
 import { Request, Response } from "express";
 const cloudinary = require("cloudinary").v2;
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('myTotallySecretKey');
 
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_KEY,
-  api_secret: process.env.CLOUD_SECRET,
+  cloud_name: cryptr.decrypt(process.env.CLOUD_NAME_ENC),
+  api_key: cryptr.decrypt(process.env.CLOUD_KEY_ENC),
+  api_secret: cryptr.decrypt(process.env.CLOUD_SECRET_ENC),
   secure: true,
 });
 
