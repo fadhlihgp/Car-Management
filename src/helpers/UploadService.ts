@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { BadRequestException } from "../exceptions/BadRequestException";
 const cloudinary = require("cloudinary").v2;
 const Cryptr = require('cryptr');
 const cryptr = new Cryptr('myTotallySecretKey');
@@ -11,7 +12,10 @@ cloudinary.config({
 });
 
 const uploadService = (req: Request, res: Response) => {
-  const fileBase64 = req.file?.buffer.toString("base64");
+  const body = req.file;
+  if (!body) throw new BadRequestException("File photo belum diupload!");
+  
+  const fileBase64 = body.buffer.toString("base64");
   const file = `data:${req.file?.mimetype};base64,${fileBase64}`;
 
   cloudinary.uploader.upload(file, (err: Error, result: any) => {
