@@ -12,20 +12,20 @@ export class CarModel extends Model {
   availability?: boolean;
   capacity!: number;
   description?: string;
-  picture_url!: string;
-  available_at?: Date;
-  updated_at!: Date;
-  is_deleted?: boolean;
-  car_brand_id?: string;
-  car_transmission_id?: string;
-  car_type_id?: string;
+  pictureUrl!: string;
+  availableAt?: Date;
+  updatedAt!: Date;
+  isDeleted?: boolean;
+  carBrandId?: string;
+  carTransmissionId?: string;
+  carTypeId?: string;
 
   static relationMappings = {
     carBrand: {
       relation: Model.BelongsToOneRelation,
       modelClass: CarBrandModel,
       join: {
-        from: "car.car_brand_id",
+        from: "car.carBrandId",
         to: "car_brand.id",
       },
     },
@@ -33,7 +33,7 @@ export class CarModel extends Model {
       relation: Model.BelongsToOneRelation,
       modelClass: CarTransmissionModel,
       join: {
-        from: "car.car_transmission_id",
+        from: "car.carTransmissionId",
         to: "car_transmission.id",
       },
     },
@@ -41,7 +41,7 @@ export class CarModel extends Model {
       relation: Model.BelongsToOneRelation,
       modelClass: CarTypeModel,
       join: {
-        from: "car.car_type_id",
+        from: "car.carTypeId",
         to: "car_type.id",
       },
     },

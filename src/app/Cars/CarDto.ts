@@ -4,11 +4,11 @@ export interface CarRequestDto {
     year: number;
     size: string;
     availability: boolean;
-    available_at?: Date;
+    availableAt?: Date;
     capacity: number;
     description?: string;
-    picture_url?: string;
-    car_transmission_id?: string;
-    car_brand_id?: string;
-    car_type_id?: string;
+    pictureUrl?: string;
+    carTransmissionId?: string;
+    carBrandId?: string;
+    carTypeId?: string;
 }

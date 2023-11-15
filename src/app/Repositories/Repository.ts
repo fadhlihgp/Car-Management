@@ -28,6 +28,16 @@ export class Repository<T extends Model> {
     return result as T | null;
   }
 
+  async findOr(criteria: Record<string, any>, orCriteria: Record<string, any>): Promise<T | null> {
+    const result = await this.model.query().where(criteria).orWhere(orCriteria).first();
+    return result as T |null;
+  }
+
+  async findOrWithJoin(criteria: Record<string, any>, orCriteria: Record<string, any>, includes: string[]): Promise<T | null> {
+    const result = await this.model.query().where(criteria).orWhere(orCriteria).withGraphFetched(`[${includes}]`).first();
+    return result as T |null;
+  }
+
   async findAll(): Promise<T[]> {
     const results = await this.model.query();
     return results as T[];

@@ -62,8 +62,8 @@ export class CarService {
 
   async create(carRequest: CarRequestDto): Promise<CarModel> {
     let availableTime = currTime;
-    if (carRequest.available_at) {
-      availableTime = new Date(carRequest.available_at);
+    if (carRequest.availableAt) {
+      availableTime = new Date(carRequest.availableAt);
       availableTime.setHours(availableTime.getHours() + 7);
     }
     const result = await executeTransactionAsync(async () => {
@@ -72,16 +72,16 @@ export class CarService {
         name: carRequest.name,
         price: carRequest.price,
         size: carRequest.size,
-        picture_url: carRequest.picture_url ?? "",
+        pictureUrl: carRequest.pictureUrl ?? "",
         year: carRequest.year,
         availability: carRequest.availability,
         capacity: carRequest.capacity,
         description: carRequest.description,
-        available_at: availableTime,
-        updated_at: currTime,
-        car_brand_id: carRequest.car_brand_id,
-        car_transmission_id: carRequest.car_transmission_id,
-        car_type_id: carRequest.car_type_id,
+        availableAt: availableTime,
+        updatedAt: currTime,
+        carBrandId: carRequest.carBrandId,
+        carTransmissionId: carRequest.carTransmissionId,
+        carTypeId: carRequest.carTypeId,
       };
 
       return await this.carRepo.save(car);
@@ -96,16 +96,16 @@ export class CarService {
       carUpdate.name = carRequest.name;
       carUpdate.price = carRequest.price;
       carUpdate.size = carRequest.size;
-      carUpdate.updated_at = currTime;
+      carUpdate.updatedAt = currTime;
       carUpdate.year = carRequest.year;
       carUpdate.availability = carRequest.availability;
       carUpdate.capacity = carRequest.capacity;
       carUpdate.description = carRequest.description;
-      carUpdate.available_at = carRequest.available_at;
-      carUpdate.picture_url = carRequest.picture_url ?? carUpdate.picture_url;
-      carUpdate.car_brand_id = carRequest.car_brand_id ?? carUpdate.car_brand_id;
-      carUpdate.car_transmission_id = carRequest.car_transmission_id ?? carUpdate.car_transmission_id;
-      carUpdate.car_type_id = carRequest.car_type_id ?? carUpdate.car_type_id;
+      carUpdate.availableAt = carRequest.availableAt;
+      carUpdate.pictureUrl = carRequest.pictureUrl ?? carUpdate.pictureUrl;
+      carUpdate.carBrandId = carRequest.carBrandId ?? carUpdate.carBrandId;
+      carUpdate.carTransmissionId = carRequest.carTransmissionId ?? carUpdate.carTransmissionId;
+      carUpdate.carTypeId = carRequest.carTypeId ?? carUpdate.carTypeId;
 
       return await this.carRepo.update(id, carUpdate);
     });
