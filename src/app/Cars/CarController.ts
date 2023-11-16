@@ -1,9 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 import { CarRequestDto } from "./CarDto";
 import { CarService } from "./CarService";
+import { JwtHandler } from "../../security/JwtHandler";
 
 const carService = new CarService();
 class CarController {
+  private jwtHandler = new JwtHandler();
 
   async getAll(req: Request, res: Response, _next: NextFunction): Promise<void> {
     const { name = "", size = "", availability = "" } = req.query || {};
@@ -30,10 +32,11 @@ class CarController {
 
   async create(req: Request, res: Response, next: NextFunction): Promise<void> {
     const body: CarRequestDto = req.body;
+    const tokenValue = this.jwtHandler.getTokenValue(req);
     try {
       res.status(201).json({
         message: "Data berhasil disimpan",
-        data: await carService.create(body),
+        data: await carService.create(body, tokenValue.AccountId, tokenValue.RoleId),
       });
     } catch (error) {
       next(error);
@@ -42,11 +45,12 @@ class CarController {
 
   async update(req: Request, res: Response, next: NextFunction): Promise<void> {
     const { id } = req.params;
+    const tokenValue = this.jwtHandler.getTokenValue(req);
     try {
       const body: CarRequestDto = req.body;
       res.status(200).json({
         message: "Data berhasil disimpan",
-        data: await carService.update(id, body),
+        data: await carService.update(id, body, tokenValue.AccountId, tokenValue.RoleId),
       });
     } catch (error) {
       next(error);
@@ -55,8 +59,9 @@ class CarController {
 
   async delete(req: Request, res: Response, next: NextFunction): Promise<void> {
     const { id } = req.params;
+    const tokenValue = this.jwtHandler.getTokenValue(req);
     try {
-      await carService.delete(id);
+      await carService.delete(id, tokenValue.AccountId, tokenValue.RoleId);
       res.status(200).json({
         message: "Data berhasil dihapus",
       });

@@ -2,6 +2,7 @@ import { Model, ModelObject } from "objection";
 import { CarBrandModel } from "./../CarBrands/CarBrandModel";
 import CarTransmissionModel from "../CarTransamissions/CarTransmissionModel";
 import { CarTypeModel } from "../CarTypes/CarTypeModel";
+import { AccountModel } from "../Auth/AccountModel";
 
 export class CarModel extends Model {
   id!: string;
@@ -14,8 +15,13 @@ export class CarModel extends Model {
   description?: string;
   pictureUrl!: string;
   availableAt?: Date;
+  createdAt!: Date;
+  createdById!: string;
   updatedAt!: Date;
-  isDeleted?: boolean;
+  updatedById!: string;
+  isDeleted!: boolean;
+  deletedAt?: Date;
+  deteledById?: string;
   carBrandId?: string;
   carTransmissionId?: string;
   carTypeId?: string;
@@ -45,6 +51,30 @@ export class CarModel extends Model {
         to: "car_type.id",
       },
     },
+    createdBy: {
+      relation: Model.BelongsToOneRelation,
+      modelClass: AccountModel,
+      join: {
+        from: "car.createdById",
+        to: "account.id"
+      }
+    },
+    editedBy: {
+      relation: Model.BelongsToOneRelation,
+      modelClass: AccountModel,
+      join: {
+        from: "car.editedById",
+        to: "account.id"
+      }
+    },
+    deletedBy: {
+      relation: Model.BelongsToOneRelation,
+      modelClass: AccountModel,
+      join: {
+        from: "car.deletedById",
+        to: "account.id"
+      }
+    }
   };
 
   static get tableName() {

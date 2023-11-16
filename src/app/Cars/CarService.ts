@@ -3,6 +3,8 @@ import { NotFoundException } from "../../exceptions/NotFoundException";
 import { CarRequestDto } from "./CarDto";
 import { Repository } from "../Repositories/Repository";
 import executeTransactionAsync from "../Repositories/ExecuteTransactionAsync";
+import { parsingTime } from "../../helpers/ParsingTime";
+import { UnauthorizedException } from "../../exceptions/UnauthorizedException";
 const { v4: uuidv4 } = require("uuid");
 
 let currTime = new Date();
@@ -19,7 +21,7 @@ export class CarService {
     const isAvailable = availability?.toLowerCase() == "true";
 
     const criteria = {
-      is_deleted: false,
+      isDeleted: false,
     };
 
     let filterParams = [
@@ -36,7 +38,7 @@ export class CarService {
       },
     ];
 
-    let cars = await this.carRepo.findAllWithCriteriaAndJoin(criteria, ["carBrand", "carTransmission", "carType"]);
+    let cars = await this.carRepo.findAllWithCriteriaAndJoin(criteria, ["carBrand", "carTransmission", "carType", "createdBy", "editedBy", "deletedBy"]);
     for (const filter of filterParams) {
       if (!filter.isEmpty) {
         cars = cars.filter(filter.condition);
@@ -49,10 +51,10 @@ export class CarService {
   async getById(id: string): Promise<CarModel> {
     const criteria = {
       id: id,
-      is_deleted: false,
+      isDeleted: false,
     };
 
-    const car = await this.carRepo.findWithJoin(criteria, ["carType", "carBrand", "carTransmission"]);
+    const car = await this.carRepo.findWithJoin(criteria, ["carBrand", "carTransmission", "carType", "createdBy", "editedBy", "deletedBy"]);
     if (!car) {
       throw new NotFoundException("Data mobil tidak ditemukan");
     } else {
@@ -60,7 +62,9 @@ export class CarService {
     }
   }
 
-  async create(carRequest: CarRequestDto): Promise<CarModel> {
+  async create(carRequest: CarRequestDto, accountId: string, roleId: string): Promise<CarModel> {
+    if (roleId == "3") throw new UnauthorizedException("Akses ditolak");
+
     let availableTime = currTime;
     if (carRequest.availableAt) {
       availableTime = new Date(carRequest.availableAt);
@@ -78,7 +82,10 @@ export class CarService {
         capacity: carRequest.capacity,
         description: carRequest.description,
         availableAt: availableTime,
-        updatedAt: currTime,
+        createdAt: parsingTime(new Date()),
+        createdById: accountId,
+        updatedAt: parsingTime(new Date()),
+        updatedById: accountId,
         carBrandId: carRequest.carBrandId,
         carTransmissionId: carRequest.carTransmissionId,
         carTypeId: carRequest.carTypeId,
@@ -89,14 +96,16 @@ export class CarService {
     return result;
   }
 
-  async update(id: string, carRequest: CarRequestDto): Promise<CarModel> {
+  async update(id: string, carRequest: CarRequestDto, accountId: string, roleId: string): Promise<CarModel> {
+    if (roleId == "3") throw new UnauthorizedException("Akses ditolak");
+    
     const result = await executeTransactionAsync(async () => {
       let carUpdate: CarModel = await this.getById(id);
-
       carUpdate.name = carRequest.name;
       carUpdate.price = carRequest.price;
       carUpdate.size = carRequest.size;
-      carUpdate.updatedAt = currTime;
+      carUpdate.updatedAt = parsingTime(new Date());
+      carUpdate.updatedById = accountId;
       carUpdate.year = carRequest.year;
       carUpdate.availability = carRequest.availability;
       carUpdate.capacity = carRequest.capacity;
@@ -113,21 +122,25 @@ export class CarService {
   }
 
   // hard delete
-  async delete(id: string): Promise<void> {
-    await executeTransactionAsync(async () => {
-      await this.getById(id);
-      await this.carRepo.delete(id);
-    });
-  }
+  // async delete(id: string): Promise<void> {
+  //   await executeTransactionAsync(async () => {
+  //     await this.getById(id);
+  //     await this.carRepo.delete(id);
+  //   });
+  // }
 
   // soft delete
-  // async delete(id: string): Promise<void> {
-  //   let findCar = await this.getById(id);
-  //   findCar.is_deleted = true;
-  //   try {
-  //     await this.carRepo.update(id, findCar);
-  //   } catch (error) {
-  //     throw new Error(`${error}`);
-  //   }
-  // }
+  async delete(id: string, accountId: string, roleId: string): Promise<void> {
+    if (roleId == "3") throw new UnauthorizedException("Akses ditolak");
+    
+    let findCar = await this.getById(id);
+    findCar.isDeleted = true;
+    findCar.deletedAt = parsingTime(new Date());
+    findCar.deteledById = accountId;
+    try {
+      await this.carRepo.update(id, findCar);
+    } catch (error) {
+      throw new Error(`${error}`);
+    }
+  }
 }
