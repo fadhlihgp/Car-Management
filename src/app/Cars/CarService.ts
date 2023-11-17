@@ -136,11 +136,14 @@ export class CarService {
     let findCar = await this.getById(id);
     findCar.isDeleted = true;
     findCar.deletedAt = parsingTime(new Date());
-    findCar.deteledById = accountId;
-    try {
+    findCar.deletedById = accountId;
+    // try {
+    //   await this.carRepo.update(id, findCar);
+    // } catch (error) {
+    //   throw new Error(`${error}`);
+    // }
+    await executeTransactionAsync( async () => {
       await this.carRepo.update(id, findCar);
-    } catch (error) {
-      throw new Error(`${error}`);
-    }
+    })
   }
 }

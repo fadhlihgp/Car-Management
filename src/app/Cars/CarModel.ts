@@ -21,7 +21,7 @@ export class CarModel extends Model {
   updatedById!: string;
   isDeleted!: boolean;
   deletedAt?: Date;
-  deteledById?: string;
+  deletedById?: string;
   carBrandId?: string;
   carTransmissionId?: string;
   carTypeId?: string;
