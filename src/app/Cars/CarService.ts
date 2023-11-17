@@ -38,7 +38,7 @@ export class CarService {
       },
     ];
 
-    let cars = await this.carRepo.findAllWithCriteriaAndJoin(criteria, ["carBrand", "carTransmission", "carType", "createdBy", "editedBy", "deletedBy"]);
+    let cars = await this.carRepo.findAllWithCriteriaAndJoin(criteria, ["carBrand", "carTransmission", "carType", "createdBy", "updatedBy", "deletedBy"]);
     for (const filter of filterParams) {
       if (!filter.isEmpty) {
         cars = cars.filter(filter.condition);

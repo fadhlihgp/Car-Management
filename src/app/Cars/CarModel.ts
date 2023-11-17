@@ -59,11 +59,11 @@ export class CarModel extends Model {
         to: "account.id"
       }
     },
-    editedBy: {
+    updatedBy: {
       relation: Model.BelongsToOneRelation,
       modelClass: AccountModel,
       join: {
-        from: "car.editedById",
+        from: "car.updatedById",
         to: "account.id"
       }
     },

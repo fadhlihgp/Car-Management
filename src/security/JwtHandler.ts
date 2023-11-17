@@ -42,3 +42,5 @@ export class JwtHandler {
     return tokenPayload;
   }
 }
+
+export default JwtHandler;

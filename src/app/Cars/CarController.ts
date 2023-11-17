@@ -4,8 +4,13 @@ import { CarService } from "./CarService";
 import { JwtHandler } from "../../security/JwtHandler";
 
 const carService = new CarService();
+const jwtHandler = new JwtHandler();
 class CarController {
-  private jwtHandler = new JwtHandler();
+  // private jwtHandler: JwtHandler;
+
+  constructor() {
+    // jwtHandler = new JwtHandler();
+  }
 
   async getAll(req: Request, res: Response, _next: NextFunction): Promise<void> {
     const { name = "", size = "", availability = "" } = req.query || {};
@@ -32,7 +37,7 @@ class CarController {
 
   async create(req: Request, res: Response, next: NextFunction): Promise<void> {
     const body: CarRequestDto = req.body;
-    const tokenValue = this.jwtHandler.getTokenValue(req);
+    const tokenValue = jwtHandler.getTokenValue(req);
     try {
       res.status(201).json({
         message: "Data berhasil disimpan",
@@ -45,7 +50,7 @@ class CarController {
 
   async update(req: Request, res: Response, next: NextFunction): Promise<void> {
     const { id } = req.params;
-    const tokenValue = this.jwtHandler.getTokenValue(req);
+    const tokenValue = jwtHandler.getTokenValue(req);
     try {
       const body: CarRequestDto = req.body;
       res.status(200).json({
@@ -56,10 +61,10 @@ class CarController {
       next(error);
     }
   }
-
+  
   async delete(req: Request, res: Response, next: NextFunction): Promise<void> {
     const { id } = req.params;
-    const tokenValue = this.jwtHandler.getTokenValue(req);
+    const tokenValue = jwtHandler.getTokenValue(req);
     try {
       await carService.delete(id, tokenValue.AccountId, tokenValue.RoleId);
       res.status(200).json({
