@@ -5,15 +5,20 @@ import { Repository } from "../Repositories/Repository";
 import executeTransactionAsync from "../Repositories/ExecuteTransactionAsync";
 import { parsingTime } from "../../helpers/ParsingTime";
 import { UnauthorizedException } from "../../exceptions/UnauthorizedException";
+import { CarBrand } from "../CarBrands/CarBrandModel";
+import {CarRepository} from "./CarRepository";
+import {Modifiers} from "objection";
+import {CarLogService} from "../CarLog/CarLogService";
+import {CarLogModel} from "../CarLog/CarLogModel";
 const { v4: uuidv4 } = require("uuid");
 
-let currTime = new Date();
-currTime.setHours(currTime.getHours() + 7);
 export class CarService {
   private carRepo: Repository<CarModel>;
+  private carLogService: CarLogService;
 
   constructor() {
     this.carRepo = new Repository(CarModel);
+    this.carLogService = new CarLogService();
   }
 
   async getAll(name?: string, size?: string, availability?: string): Promise<CarModel[]> {
@@ -38,13 +43,19 @@ export class CarService {
       },
     ];
 
-    let cars = await this.carRepo.findAllWithCriteriaAndJoin(criteria, ["carBrand", "carTransmission", "carType", "createdBy", "updatedBy", "deletedBy"]);
+    let cars = await this.carRepo.findAllWithCriteriaAndJoin(criteria, [
+      "carBrand",
+      "carTransmission",
+      "carType",
+      "createdBy(selectUser)",
+      "updatedBy(selectUser)",
+      "deletedBy(selectUser)",
+    ], this.carModifiers());
     for (const filter of filterParams) {
       if (!filter.isEmpty) {
         cars = cars.filter(filter.condition);
       }
     }
-
     return cars;
   }
 
@@ -54,7 +65,14 @@ export class CarService {
       isDeleted: false,
     };
 
-    const car = await this.carRepo.findWithJoin(criteria, ["carBrand", "carTransmission", "carType", "createdBy", "editedBy", "deletedBy"]);
+    const car = await this.carRepo.findWithJoin(criteria, [
+      "carBrand",
+      "carTransmission",
+      "carType",
+      "createdBy(selectUser)",
+      "updatedBy(selectUser)",
+      "deletedBy(selectUser)",
+    ], this.carModifiers());
     if (!car) {
       throw new NotFoundException("Data mobil tidak ditemukan");
     } else {
@@ -65,11 +83,12 @@ export class CarService {
   async create(carRequest: CarRequestDto, accountId: string, roleId: string): Promise<CarModel> {
     if (roleId == "3") throw new UnauthorizedException("Akses ditolak");
 
-    let availableTime = currTime;
+    let availableTime = parsingTime(new Date());
     if (carRequest.availableAt) {
       availableTime = new Date(carRequest.availableAt);
       availableTime.setHours(availableTime.getHours() + 7);
     }
+
     const result = await executeTransactionAsync(async () => {
       const car: Partial<CarModel> = {
         id: uuidv4(),
@@ -91,14 +110,23 @@ export class CarService {
         carTypeId: carRequest.carTypeId,
       };
 
-      return await this.carRepo.save(car);
+      const carLog: Partial<CarLogModel> = {
+        id: uuidv4(),
+        action: "Create",
+        carId: car.id,
+        accountId: accountId,
+        date: parsingTime(new Date())
+      }
+      const carSave =  await this.carRepo.save(car);
+      await this.carLogService.createCarLog(carLog);
+      return carSave;
     });
     return result;
   }
 
   async update(id: string, carRequest: CarRequestDto, accountId: string, roleId: string): Promise<CarModel> {
     if (roleId == "3") throw new UnauthorizedException("Akses ditolak");
-    
+
     const result = await executeTransactionAsync(async () => {
       let carUpdate: CarModel = await this.getById(id);
       carUpdate.name = carRequest.name;
@@ -116,6 +144,14 @@ export class CarService {
       carUpdate.carTransmissionId = carRequest.carTransmissionId ?? carUpdate.carTransmissionId;
       carUpdate.carTypeId = carRequest.carTypeId ?? carUpdate.carTypeId;
 
+      const carLog: Partial<CarLogModel> = {
+        id: uuidv4(),
+        action: "Update",
+        carId: carUpdate.id,
+        accountId: accountId,
+        date: parsingTime(new Date())
+      }
+      await this.carLogService.createCarLog(carLog);
       return await this.carRepo.update(id, carUpdate);
     });
     return result;
@@ -132,18 +168,32 @@ export class CarService {
   // soft delete
   async delete(id: string, accountId: string, roleId: string): Promise<void> {
     if (roleId == "3") throw new UnauthorizedException("Akses ditolak");
-    
+
     let findCar = await this.getById(id);
     findCar.isDeleted = true;
     findCar.deletedAt = parsingTime(new Date());
     findCar.deletedById = accountId;
-    // try {
-    //   await this.carRepo.update(id, findCar);
-    // } catch (error) {
-    //   throw new Error(`${error}`);
-    // }
-    await executeTransactionAsync( async () => {
+    const carLog: Partial<CarLogModel> = {
+      id: uuidv4(),
+      action: "Delete",
+      carId: findCar.id,
+      accountId: accountId,
+      date: parsingTime(new Date())
+    }
+    await executeTransactionAsync(async () => {
+      await this.carLogService.createCarLog(carLog);
       await this.carRepo.update(id, findCar);
-    })
+    });
+  }
+
+  private carModifiers(): Modifiers {
+    return {
+      selectName(builder) {
+        builder.select("name")
+      },
+      selectUser(builder) {
+        builder.select("id", "fullName", "username")
+      }
+    }
   }
 }

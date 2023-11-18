@@ -12,6 +12,7 @@ import carTransmissionRouter from "./app/CarTransamissions/CarTransmissionRoute"
 import authRouter from "./app/Auth/AuthRoute";
 import { JwtHandler } from "./security/JwtHandler";
 import { authenticateUser } from './middlewares/AuthMiddleware';
+import carLogRoute from "./app/CarLog/CarLogRoute";
 
 const uploadService = require("./helpers/UploadService");
 const upload = require("./middlewares/upload");
@@ -22,9 +23,8 @@ const port = process.env.PORT;
 const newKnex = knex(knexInstance);
 Model.knex(newKnex);
 
-const jwtHandler = new JwtHandler();
-const authController = new AuthController()
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // ########################### Routing ###################################
 app.use("/api/v1", carBrandRouter);
@@ -32,6 +32,7 @@ app.use("/api/v1", carTypeRouter);
 app.use("/api/v1", carTransmissionRouter);
 app.use("/api/v1", authRouter);
 app.use("/api/v1" ,carRouter);
+app.use("/api/v1", carLogRoute);
 app.post("/api/v1/photo/upload", authenticateUser ,upload.single("picture"), uploadService);
 // ========================================================================
 

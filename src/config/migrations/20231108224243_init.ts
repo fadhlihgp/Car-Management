@@ -1,6 +1,4 @@
 import { Knex } from "knex";
-const { v4: uuidv4 } = require("uuid");
-
 
 export async function up(knex: Knex): Promise<void> {
   return knex.schema
@@ -77,6 +75,15 @@ export async function up(knex: Knex): Promise<void> {
       table.decimal("totalPrice", 14, 2);
       table.foreign("trxId").references("id").inTable("trx");
       table.foreign("carId").references("id").inTable("car");
+    })
+    .createTableIfNotExists("car_log", (table: Knex.TableBuilder) => {
+      table.string("id", 255).notNullable().primary();
+      table.string("action", 255).notNullable();
+      table.string("accountId", 255).notNullable();
+      table.string("carId", 255).notNullable();
+      table.timestamp("date", { useTz: true }).defaultTo(knex.fn.now());
+      table.foreign("accountId").references("id").inTable("account");
+      table.foreign("carId").references("id").inTable("car");
     });
 }
 
@@ -87,5 +94,6 @@ export async function down(knex: Knex): Promise<void> {
     .dropTableIfExists("car_brand")
     .dropTableIfExists("car")
     .dropTableIfExists("account")
-    .dropTableIfExists("car_type");
+    .dropTableIfExists("car_type")
+    .dropTableIfExists("car_log");
 }

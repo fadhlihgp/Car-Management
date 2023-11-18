@@ -7,7 +7,6 @@ import { LoginReqDto, LoginResDto, RegisterReqDto } from "./AuthDto";
 import { RoleModel } from "./RoleModel";
 import executeTransactionAsync from "../Repositories/ExecuteTransactionAsync";
 const { v4: uuidv4 } = require("uuid");
-import { Request } from "express";
 import { parsingTime } from "../../helpers/ParsingTime";
 
 export class AuthService {
@@ -99,7 +98,6 @@ export class AuthService {
   }
 
   async getCurrentUser(accountId: string): Promise<AccountModel> {
-    // const tokenPayload = this.jwtHandler.getTokenValue(req);
     const result = await this.accountRepo.findById(accountId);
     if (!result) throw new UnauthorizedException("User tidak ditemukan");
     result.password = "-";

@@ -1,14 +1,14 @@
-import { Account, AccountModel } from "../app/Auth/AccountModel";
-import jwt, { JwtPayload, SignOptions } from "jsonwebtoken";
-import { Request } from "express";
-import { UnauthorizedException } from "../exceptions/UnauthorizedException";
+import {Account} from "../app/Auth/AccountModel";
+import jwt, {SignOptions, TokenExpiredError} from "jsonwebtoken";
+import {Request} from "express";
+import {UnauthorizedException} from "../exceptions/UnauthorizedException";
 
 export interface TokenPayload {
-  Email: string,
-  UserName: string,
-  Role: string,
-  RoleId: string,
-  AccountId: string
+  Email: string;
+  UserName: string;
+  Role: string;
+  RoleId: string;
+  AccountId: string;
 }
 
 export class JwtHandler {
@@ -25,7 +25,7 @@ export class JwtHandler {
     const options: SignOptions = {
       algorithm: "HS256",
       expiresIn: "24h",
-      issuer: "Fadhlih"
+      issuer: "Fadhlih",
     };
 
     const token = jwt.sign(payload, this.secretKey, options);
@@ -38,8 +38,13 @@ export class JwtHandler {
     // const bearerToken = req.cookies.authorization;
     if (!bearerToken) throw new UnauthorizedException("Anda belum login, silahkan login terlebih dahulu!");
     const token = bearerToken.split("Bearer ")[1];
-    const tokenPayload = jwt.verify(token, this.secretKey) as TokenPayload;
-    return tokenPayload;
+
+    try {
+      return jwt.verify(token, this.secretKey) as TokenPayload;
+    } catch (error) {
+      if (error instanceof TokenExpiredError) throw new UnauthorizedException("Token expired, silahkan login ulang");
+      throw new Error("");
+    }
   }
 }
 

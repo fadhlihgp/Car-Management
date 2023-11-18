@@ -1,4 +1,4 @@
-import { Model } from "objection";
+import {Model, Modifiers} from "objection";
 
 export class Repository<T extends Model> {
   constructor(private model: typeof Model) {}
@@ -23,8 +23,8 @@ export class Repository<T extends Model> {
     return result as T | null;
   }
 
-  async findWithJoin(criteria: Record<string, any>, includes: string[]): Promise<T | null> {
-    const result = await this.model.query().where(criteria).withGraphFetched(`[${includes}]`).first();
+  async findWithJoin(criteria: Record<string, any>, includes: string[], modifiers: Modifiers = {}): Promise<T | null> {
+    const result = await this.model.query().where(criteria).withGraphFetched(`[${includes}]`).first().modifiers(modifiers);
     return result as T | null;
   }
 
@@ -43,8 +43,8 @@ export class Repository<T extends Model> {
     return results as T[];
   }
 
-  async findAllWithJoin(includes: string[]): Promise<T[]> {
-    const results = await this.model.query().withGraphFetched(`[${includes}]`);
+  async findAllWithJoin(includes: string[], modifiers: Modifiers = {}): Promise<T[]> {
+    const results = await this.model.query().withGraphFetched(`[${includes}]`).modifiers(modifiers);
     return results as T[];
   }
 
@@ -53,8 +53,8 @@ export class Repository<T extends Model> {
     return results as T[];
   }
 
-  async findAllWithCriteriaAndJoin(criteria: Record<string, any>, includes: string[]): Promise<T[]> {
-    let result = await this.model.query().where(criteria).withGraphFetched(`[${includes}]`);
+  async findAllWithCriteriaAndJoin(criteria: Record<string, any>, includes: string[], modifiers: Modifiers = {}): Promise<T[]> {
+    let result = await this.model.query().where(criteria).withGraphFetched(`[${includes}]`).modifiers(modifiers);
     return result as T[];
   }
 
