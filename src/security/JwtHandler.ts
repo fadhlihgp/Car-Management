@@ -1,4 +1,4 @@
-import {Account} from "../app/Auth/AccountModel";
+import {Account} from "../models/AccountModel";
 import jwt, {SignOptions, TokenExpiredError} from "jsonwebtoken";
 import {Request} from "express";
 import {UnauthorizedException} from "../exceptions/UnauthorizedException";
@@ -12,7 +12,7 @@ export interface TokenPayload {
 }
 
 export class JwtHandler {
-  private secretKey = process.env.SECRET_KEY || "secret";
+  private secretKey = process.env.JWT_SECRET_KEY || "secret";
   public generateToken(account: Account): string {
     const payload = {
       Email: account.email,
@@ -41,9 +41,9 @@ export class JwtHandler {
 
     try {
       return jwt.verify(token, this.secretKey) as TokenPayload;
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof TokenExpiredError) throw new UnauthorizedException("Token expired, silahkan login ulang");
-      throw new Error("");
+      throw new Error(error.message);
     }
   }
 }

@@ -1,38 +1,43 @@
-import { AuthController } from './app/Auth/AuthController';
+import { AuthController } from './controllers/AuthController';
 import express, { Express, Response, Request } from "express";
 import knex, { Knex } from "knex";
 import { Model } from "objection";
-import carRouter from "./app/Cars/CarRoute";
+import carRouter from "./routes/CarRoute";
 import errorhandler from "./middlewares/errorhandler";
 import notFound from "./exceptions/404";
 import knexInstance from "./config/KnexInstance";
-import carBrandRouter from "./app/CarBrands/CarBrandRoute";
-import carTypeRouter from "./app/CarTypes/CarTypeRoute";
-import carTransmissionRouter from "./app/CarTransamissions/CarTransmissionRoute";
-import authRouter from "./app/Auth/AuthRoute";
-import { JwtHandler } from "./security/JwtHandler";
-import { authenticateUser } from './middlewares/AuthMiddleware';
-import carLogRoute from "./app/CarLog/CarLogRoute";
+import carBrandRouter from "./routes/CarBrandRoute";
+import carTypeRouter from "./routes/CarTypeRoute";
+import carTransmissionRouter from "./routes/CarTransmissionRoute";
+import authRouter from "./routes/AuthRoute";
+import {authenticateUser, authorizedSuperAdminAndAdmin} from './middlewares/AuthMiddleware';
+import carLogRoute from "./routes/CarLogRoute";
+import swaggerUi from 'swagger-ui-express';
+const YAML = require("yamljs");
+import cors from "cors";
 
-const uploadService = require("./helpers/UploadService");
+const uploadService = require("./services/UploadService");
 const upload = require("./middlewares/upload");
 
 const app: Express = express();
+const swaggerDocument = YAML.load("./openAPI.yaml")
 const port = process.env.PORT;
 
 const newKnex = knex(knexInstance);
 Model.knex(newKnex);
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ########################### Routing ###################################
-app.use("/api/v1", carBrandRouter);
-app.use("/api/v1", carTypeRouter);
-app.use("/api/v1", carTransmissionRouter);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/api/v1", authorizedSuperAdminAndAdmin, carBrandRouter);
+app.use("/api/v1", authorizedSuperAdminAndAdmin, carTypeRouter);
+app.use("/api/v1", authorizedSuperAdminAndAdmin, carTransmissionRouter);
 app.use("/api/v1", authRouter);
-app.use("/api/v1" ,carRouter);
-app.use("/api/v1", carLogRoute);
+app.use("/api/v1" , authorizedSuperAdminAndAdmin,carRouter);
+app.use("/api/v1", authorizedSuperAdminAndAdmin, carLogRoute);
 app.post("/api/v1/photo/upload", authenticateUser ,upload.single("picture"), uploadService);
 // ========================================================================
 

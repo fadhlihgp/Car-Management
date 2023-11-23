@@ -1,0 +1,350 @@
+openapi: 3.0.0
+info:
+  title: Binar Car Management API
+  version: 0.0.1
+servers:
+  - description: "Local Server"
+    url: http://localhost:7000
+tags:
+  - name: Car Brand
+  - name: Car Type
+  - name: Car Transmission
+  - name: Car
+    description: Everything about car
+  - name: Auth
+    description: Authentication and authorization
+
+paths:
+# Car Brand
+  /api/v1/car-brand:
+    get:
+      tags:
+        - Car Brand
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Successfully get data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GetCarTypes'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - Car Brand
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: Payload create Car Brand
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCarTypes'
+      responses:
+        "201":
+          description: Successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCarTypes'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+# Car Type
+  /api/v1/car-type:
+    get:
+      tags:
+        - Car Type
+      security:
+        - bearerAuth: [ ]
+      responses:
+        "200":
+          description: Successfully get data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GetCarTypes'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - Car Type
+      security:
+        - bearerAuth: [ ]
+      requestBody:
+        description: Payload create Car Type
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCarTypes'
+      responses:
+        "201":
+          description: Successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCarTypes'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+# Car Transmission
+  /api/v1/car-transmission:
+    get:
+      tags:
+        - Car Transmission
+      security:
+        - bearerAuth: [ ]
+      responses:
+        "200":
+          description: Successfully get data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GetCarTypes'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - Car Transmission
+      security:
+        - bearerAuth: [ ]
+      requestBody:
+        description: Payload create Car Transmission
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCarTypes'
+      responses:
+        "201":
+          description: Successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCarTypes'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+
+  /api/v1/cars:
+    get:
+      tags:
+        - Car
+      #      parameters:
+      #        -in: query
+      #        name: car_brand
+      #        description: query param of car
+      #        required: false
+      #        schema:
+      #          type: string
+
+      responses:
+        "200":
+          description: Successfully get data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Successfully get data"
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: "dsag12-dsisdg2-2723-ssdig"
+                      name:
+                        type: string
+                        example: "Toyota avanza"
+    post:
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: payload to create a car
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarPost'
+      responses:
+        "201":
+          description: Successfully create car
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Successfully create data"
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: "dsag12-dsisdg2-2723-ssdig"
+                      name:
+                        type: string
+                        example: "Toyota avanza"
+
+
+  /api/v1/cars/{id}:
+    get:
+      parameters:
+        - in: path
+          name: id
+          description: id of car
+          required: true
+          schema:
+            type: string
+
+      responses:
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Error Message"
+
+    GetCarTypes:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "string"
+        name:
+          type: string
+          example: "string"
+
+    PostCarTypes:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "string"
+
+    CarPost:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Toyota avanza"
+        price:
+          type: number
+          example: 300000
+        year:
+          type: number
+          example: 2019
+        size:
+          type: string
+          example: "Large"
+        availability:
+          type: boolean
+          example: true
+
+
