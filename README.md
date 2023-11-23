@@ -10,6 +10,9 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 - email: superadmin@email.com
 - password: superadmin123/
 
+## API Docs Link
+http://localhost:7000/api-docs
+
 ## API Features
 
 ### Car Type
