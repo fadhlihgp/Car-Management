@@ -6,6 +6,13 @@ The application for manage the cars
 
 https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 
+## SuperAdmin Account
+- email: superadmin@email.com
+- password: superadmin123/
+
+## API Docs Link
+http://localhost:7000/api-docs
+
 ## API Features
 
 ### Car Type
@@ -315,13 +322,13 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
     "year": 2020,
     "size": "Medium",
     "availability": true,
-    "available_at": "2023-11-09T14:00:00",
+    "availableAt": "2023-11-09T14:00:00",
     "capacity": 6,
     "description": "Avanza new car",
-    "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-    "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-    "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-    "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08"
+    "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+    "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+    "carBrandId": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+    "carTypeId": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08"
 }
 ```
 
@@ -331,20 +338,22 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 {
     "message": "Data berhasil disimpan",
     "data": {
-        "name": "Toyota Avanza",
-        "price": 300000,
-        "size": "Medium",
-        "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-        "year": 2020,
-        "availability": true,
-        "capacity": 6,
-        "description": "Avanza new car",
-        "available_at": "2023-11-09T14:00:00",
-        "updated_at": "2023-11-09T14:25:02.969Z",
-        "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-        "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-        "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-        "id": "7212a1f8-ef58-4806-83f6-2c57f3659a11"
+      "id": "string",
+      "name": "string",
+      "price": 250000,
+      "year": 2019,
+      "size": "Medium",
+      "availability": true,
+      "capacity": 6,
+      "description": "string",
+      "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+      "availableAt": "2023-11-17T16:31:22.010Z",
+      "createdAt": "2023-11-17T16:31:22.010Z",
+      "createdById": "1cb69048-68be-474a-bef8-bff0105261aa",
+      "isDeleted": false,
+      "carBrandId": "1cb69048-68be-474a-bef8-bff0105261aa",
+      "carTypeId": "1cb69048-68be-474a-bef8-bff0105261aa",
+      "carTransmissionId": "1cb69048-68be-474a-bef8-bff0105261aa"
     }
 }
 ```
@@ -361,13 +370,13 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
     "year": 2019,
     "size": "Large",
     "availability": true,
-    // "available_at": "2023-11-09T14:00:00",
+    // "availableAt": "2023-11-09T14:00:00",
     "capacity": 6,
     "description": "Avanza new car and updated",
-    "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-    "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-    "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-    "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08"
+    "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+    "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+    "carBrandId": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+    "carTypeId": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08"
 }
 ```
 
@@ -385,13 +394,13 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
         "availability": true,
         "capacity": 6,
         "description": "Avanza new car and updated",
-        "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-        "available_at": "2023-11-09T07:00:00.000Z",
-        "updated_at": "2023-11-09T14:33:18.922Z",
-        "is_deleted": false,
-        "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-        "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-        "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+        "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+        "availableAt": "2023-11-09T07:00:00.000Z",
+        "updatedAt": "2023-11-09T14:33:18.922Z",
+        "isDeleted": false,
+        "carBrandId": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+        "carTypeId": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
+        "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
         "carType": {
             "id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
             "name": "Crossover"
@@ -419,6 +428,51 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
     "message": "Berhasil mendapatkan data mobil",
     "data": [
         {
+            "id": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
+            "name": "Toyota Alphard",
+            "price": "1000000.00",
+            "year": 2023,
+            "size": "Large",
+            "availability": true,
+            "capacity": 8,
+            "description": "Large and elegant car",
+            "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+            "availableAt": "2023-11-17T16:31:22.010Z",
+            "createdAt": "2023-11-17T16:31:22.010Z",
+            "createdById": "1cb69048-68be-474a-bef8-bff01052615c",
+            "updatedAt": "2023-11-17T16:31:22.010Z",
+            "updatedById": "1cb69048-68be-474a-bef8-bff01052615c",
+            "isDeleted": false,
+            "deletedAt": null,
+            "deletedById": null,
+            "carBrandId": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+            "carTypeId": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
+            "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+            "carBrand": {
+                "id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+                "name": "Toyota"
+            },
+            "carTransmission": {
+                "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+                "name": "Manual"
+            },
+            "deletedBy": null,
+            "carType": {
+                "id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
+                "name": "Convertible "
+            },
+            "createdBy": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin"
+            },
+            "updatedBy": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin"
+            }
+        },
+        {
             "id": "64588529-731f-4353-8720-17690f69996a",
             "name": "Honda Brio",
             "price": "250000.00",
@@ -427,13 +481,18 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
             "availability": true,
             "capacity": 5,
             "description": "small car",
-            "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-            "available_at": "2023-11-09T01:38:39.582Z",
-            "updated_at": "2023-11-09T01:38:39.582Z",
-            "is_deleted": false,
-            "car_brand_id": "64588529-731f-4353-8720-17690f69996a",
-            "car_type_id": "ff8d8f18-9f79-4a28-8514-813f0698c805",
-            "car_transmission_id": "c4d51740-8250-4d71-803c-c0b7f39bfe25",
+            "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+            "availableAt": "2023-11-17T16:31:22.010Z",
+            "createdAt": "2023-11-17T16:31:22.010Z",
+            "createdById": "1cb69048-68be-474a-bef8-bff01052615c",
+            "updatedAt": "2023-11-17T16:31:22.010Z",
+            "updatedById": "1cb69048-68be-474a-bef8-bff01052615c",
+            "isDeleted": false,
+            "deletedAt": null,
+            "deletedById": null,
+            "carBrandId": "64588529-731f-4353-8720-17690f69996a",
+            "carTypeId": "ff8d8f18-9f79-4a28-8514-813f0698c805",
+            "carTransmissionId": "c4d51740-8250-4d71-803c-c0b7f39bfe25",
             "carBrand": {
                 "id": "64588529-731f-4353-8720-17690f69996a",
                 "name": "Honda"
@@ -442,9 +501,20 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
                 "id": "c4d51740-8250-4d71-803c-c0b7f39bfe25",
                 "name": "Automatic"
             },
+            "deletedBy": null,
             "carType": {
                 "id": "ff8d8f18-9f79-4a28-8514-813f0698c805",
                 "name": "Microcar"
+            },
+            "createdBy": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin"
+            },
+            "updatedBy": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin"
             }
         },
         {
@@ -456,13 +526,18 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
             "availability": true,
             "capacity": 5,
             "description": "Medium car",
-            "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-            "available_at": "2023-11-09T01:38:39.582Z",
-            "updated_at": "2023-11-09T01:38:39.582Z",
-            "is_deleted": false,
-            "car_brand_id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
-            "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-            "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+            "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+            "availableAt": "2023-11-17T16:31:22.010Z",
+            "createdAt": "2023-11-17T16:31:22.010Z",
+            "createdById": "1cb69048-68be-474a-bef8-bff01052615c",
+            "updatedAt": "2023-11-17T16:31:22.010Z",
+            "updatedById": "1cb69048-68be-474a-bef8-bff01052615c",
+            "isDeleted": false,
+            "deletedAt": null,
+            "deletedById": null,
+            "carBrandId": "72e15674-521d-4dd1-a8ef-4e7773954e23",
+            "carTypeId": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
+            "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
             "carBrand": {
                 "id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
                 "name": "Suzuki"
@@ -471,67 +546,20 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
                 "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
                 "name": "Manual"
             },
+            "deletedBy": null,
             "carType": {
                 "id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
                 "name": "Crossover"
-            }
-        },
-        {
-            "id": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
-            "name": "Toyota Alphard Edit",
-            "price": "700000.00",
-            "year": 2023,
-            "size": "Medium",
-            "availability": true,
-            "capacity": 7,
-            "description": "Best kijang car",
-            "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-            "available_at": "2023-11-09T01:38:39.582Z",
-            "updated_at": "2023-11-09T13:11:57.550Z",
-            "is_deleted": false,
-            "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-            "car_type_id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
-            "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-            "carBrand": {
-                "id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-                "name": "Toyota"
             },
-            "carTransmission": {
-                "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-                "name": "Manual"
+            "createdBy": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin"
             },
-            "carType": {
-                "id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
-                "name": "Convertible "
-            }
-        },
-        {
-            "id": "7212a1f8-ef58-4806-83f6-2c57f3659a11",
-            "name": "Toyota Avanza New",
-            "price": "320000.00",
-            "year": 2019,
-            "size": "Large",
-            "availability": true,
-            "capacity": 6,
-            "description": "Avanza new car and updated",
-            "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-            "available_at": "2023-11-09T07:00:00.000Z",
-            "updated_at": "2023-11-09T14:33:18.922Z",
-            "is_deleted": false,
-            "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-            "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-            "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-            "carBrand": {
-                "id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-                "name": "Toyota"
-            },
-            "carTransmission": {
-                "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-                "name": "Manual"
-            },
-            "carType": {
-                "id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-                "name": "Crossover"
+            "updatedBy": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin"
             }
         }
     ]
@@ -546,67 +574,54 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 
 ```json
 {
-    "message": "Berhasil mendapatkan data mobil",
-    "data": [
-        {
-            "id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
-            "name": "Suzuki Ertiga",
-            "price": "350000.00",
-            "year": 2022,
-            "size": "Medium",
-            "availability": true,
-            "capacity": 5,
-            "description": "Medium car",
-            "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-            "available_at": "2023-11-09T01:38:39.582Z",
-            "updated_at": "2023-11-09T01:38:39.582Z",
-            "is_deleted": false,
-            "car_brand_id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
-            "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-            "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-            "carBrand": {
-                "id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
-                "name": "Suzuki"
-            },
-            "carTransmission": {
-                "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-                "name": "Manual"
-            },
-            "carType": {
-                "id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-                "name": "Crossover"
-            }
-        },
-        {
-            "id": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
-            "name": "Toyota Alphard Edit",
-            "price": "700000.00",
-            "year": 2023,
-            "size": "Medium",
-            "availability": true,
-            "capacity": 7,
-            "description": "Best kijang car",
-            "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-            "available_at": "2023-11-09T01:38:39.582Z",
-            "updated_at": "2023-11-09T13:11:57.550Z",
-            "is_deleted": false,
-            "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-            "car_type_id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
-            "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-            "carBrand": {
-                "id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-                "name": "Toyota"
-            },
-            "carTransmission": {
-                "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-                "name": "Manual"
-            },
-            "carType": {
-                "id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
-                "name": "Convertible "
-            }
-        }
-    ]
+  "message": "Berhasil mendapatkan data mobil",
+  "data": [
+    {
+      "id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
+      "name": "Suzuki Ertiga",
+      "price": "350000.00",
+      "year": 2022,
+      "size": "Medium",
+      "availability": true,
+      "capacity": 5,
+      "description": "Medium car",
+      "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+      "availableAt": "2023-11-17T16:31:22.010Z",
+      "createdAt": "2023-11-17T16:31:22.010Z",
+      "createdById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "updatedAt": "2023-11-17T16:31:22.010Z",
+      "updatedById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "isDeleted": false,
+      "deletedAt": null,
+      "deletedById": null,
+      "carBrandId": "72e15674-521d-4dd1-a8ef-4e7773954e23",
+      "carTypeId": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
+      "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+      "carBrand": {
+        "id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
+        "name": "Suzuki"
+      },
+      "carTransmission": {
+        "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+        "name": "Manual"
+      },
+      "deletedBy": null,
+      "carType": {
+        "id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
+        "name": "Crossover"
+      },
+      "createdBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      },
+      "updatedBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      }
+    }
+  ]
 }
 ```
 
@@ -618,116 +633,267 @@ https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
 
 ```json
 {
-    "message": "Berhasil mendapatkan data mobil",
-    "data": [
-        {
-            "id": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
-            "name": "Toyota Alphard Edit",
-            "price": "700000.00",
-            "year": 2023,
-            "size": "Medium",
-            "availability": true,
-            "capacity": 7,
-            "description": "Best kijang car",
-            "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-            "available_at": "2023-11-09T01:38:39.582Z",
-            "updated_at": "2023-11-09T13:11:57.550Z",
-            "is_deleted": false,
-            "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-            "car_type_id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
-            "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-            "carTransmission": {
-                "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-                "name": "Manual"
-            },
-            "carBrand": {
-                "id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-                "name": "Toyota"
-            },
-            "carType": {
-                "id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
-                "name": "Convertible "
-            }
-        },
-        {
-            "id": "7212a1f8-ef58-4806-83f6-2c57f3659a11",
-            "name": "Toyota Avanza New",
-            "price": "320000.00",
-            "year": 2019,
-            "size": "Large",
-            "availability": true,
-            "capacity": 6,
-            "description": "Avanza new car and updated",
-            "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-            "available_at": "2023-11-09T07:00:00.000Z",
-            "updated_at": "2023-11-09T14:33:18.922Z",
-            "is_deleted": false,
-            "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-            "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-            "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-            "carTransmission": {
-                "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-                "name": "Manual"
-            },
-            "carBrand": {
-                "id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-                "name": "Toyota"
-            },
-            "carType": {
-                "id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-                "name": "Crossover"
-            }
-        }
-    ]
+  "message": "Berhasil mendapatkan data mobil",
+  "data": [
+    {
+      "id": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
+      "name": "Toyota Alphard",
+      "price": "1000000.00",
+      "year": 2023,
+      "size": "Large",
+      "availability": true,
+      "capacity": 8,
+      "description": "Large and elegant car",
+      "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+      "availableAt": "2023-11-17T16:31:22.010Z",
+      "createdAt": "2023-11-17T16:31:22.010Z",
+      "createdById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "updatedAt": "2023-11-17T16:31:22.010Z",
+      "updatedById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "isDeleted": false,
+      "deletedAt": null,
+      "deletedById": null,
+      "carBrandId": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+      "carTypeId": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
+      "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+      "carBrand": {
+        "id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+        "name": "Toyota"
+      },
+      "carTransmission": {
+        "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+        "name": "Manual"
+      },
+      "deletedBy": null,
+      "carType": {
+        "id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
+        "name": "Convertible "
+      },
+      "createdBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      },
+      "updatedBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      }
+    }
+  ]
 }
 ```
 
-#### Get Cars filtered by size & name & availability
+#### Get Cars filtered by availability
 
-[get] http://localhost:7000/api/v1/car?name=toyota&size=medium&availability=true
+[get] http://localhost:7000/api/v1/car?availability=true
 
 => response
 
 ```json
 {
-    "message": "Berhasil mendapatkan data mobil",
-    "data": [
-        {
-            "id": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
-            "name": "Toyota Alphard Edit",
-            "price": "700000.00",
-            "year": 2023,
-            "size": "Medium",
-            "availability": true,
-            "capacity": 7,
-            "description": "Best kijang car",
-            "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-            "available_at": "2023-11-09T01:38:39.582Z",
-            "updated_at": "2023-11-09T13:11:57.550Z",
-            "is_deleted": false,
-            "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-            "car_type_id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
-            "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-            "carBrand": {
-                "id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-                "name": "Toyota"
-            },
-            "carType": {
-                "id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
-                "name": "Convertible "
-            },
-            "carTransmission": {
-                "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-                "name": "Manual"
-            }
-        }
-    ]
+  "message": "Berhasil mendapatkan data mobil",
+  "data": [
+    {
+      "id": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
+      "name": "Toyota Alphard",
+      "price": "1000000.00",
+      "year": 2023,
+      "size": "Large",
+      "availability": true,
+      "capacity": 8,
+      "description": "Large and elegant car",
+      "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+      "availableAt": "2023-11-17T16:31:22.010Z",
+      "createdAt": "2023-11-17T16:31:22.010Z",
+      "createdById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "updatedAt": "2023-11-17T16:31:22.010Z",
+      "updatedById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "isDeleted": false,
+      "deletedAt": null,
+      "deletedById": null,
+      "carBrandId": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+      "carTypeId": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
+      "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+      "carBrand": {
+        "id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+        "name": "Toyota"
+      },
+      "carTransmission": {
+        "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+        "name": "Manual"
+      },
+      "deletedBy": null,
+      "carType": {
+        "id": "c55e5705-e0ed-4880-8f2d-f6dd1c2e6a75",
+        "name": "Convertible "
+      },
+      "createdBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      },
+      "updatedBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      }
+    },
+    {
+      "id": "64588529-731f-4353-8720-17690f69996a",
+      "name": "Honda Brio",
+      "price": "250000.00",
+      "year": 2020,
+      "size": "Small",
+      "availability": true,
+      "capacity": 5,
+      "description": "small car",
+      "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+      "availableAt": "2023-11-17T16:31:22.010Z",
+      "createdAt": "2023-11-17T16:31:22.010Z",
+      "createdById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "updatedAt": "2023-11-17T16:31:22.010Z",
+      "updatedById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "isDeleted": false,
+      "deletedAt": null,
+      "deletedById": null,
+      "carBrandId": "64588529-731f-4353-8720-17690f69996a",
+      "carTypeId": "ff8d8f18-9f79-4a28-8514-813f0698c805",
+      "carTransmissionId": "c4d51740-8250-4d71-803c-c0b7f39bfe25",
+      "carBrand": {
+        "id": "64588529-731f-4353-8720-17690f69996a",
+        "name": "Honda"
+      },
+      "carTransmission": {
+        "id": "c4d51740-8250-4d71-803c-c0b7f39bfe25",
+        "name": "Automatic"
+      },
+      "deletedBy": null,
+      "carType": {
+        "id": "ff8d8f18-9f79-4a28-8514-813f0698c805",
+        "name": "Microcar"
+      },
+      "createdBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      },
+      "updatedBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      }
+    },
+    {
+      "id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
+      "name": "Suzuki Ertiga",
+      "price": "350000.00",
+      "year": 2022,
+      "size": "Medium",
+      "availability": true,
+      "capacity": 5,
+      "description": "Medium car",
+      "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+      "availableAt": "2023-11-17T16:31:22.010Z",
+      "createdAt": "2023-11-17T16:31:22.010Z",
+      "createdById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "updatedAt": "2023-11-17T16:31:22.010Z",
+      "updatedById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "isDeleted": false,
+      "deletedAt": null,
+      "deletedById": null,
+      "carBrandId": "72e15674-521d-4dd1-a8ef-4e7773954e23",
+      "carTypeId": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
+      "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+      "carBrand": {
+        "id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
+        "name": "Suzuki"
+      },
+      "carTransmission": {
+        "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+        "name": "Manual"
+      },
+      "deletedBy": null,
+      "carType": {
+        "id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
+        "name": "Crossover"
+      },
+      "createdBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      },
+      "updatedBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      }
+    }
+  ]
 }
 ```
 
+#### Get Cars filtered by size & name & availability
+
+[get] http://localhost:7000/api/v1/car?name=suzuki&size=medium&availability=true
+
+=> response
+
+```json
+{
+  "message": "Berhasil mendapatkan data mobil",
+  "data": [
+    {
+      "id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
+      "name": "Suzuki Ertiga",
+      "price": "350000.00",
+      "year": 2022,
+      "size": "Medium",
+      "availability": true,
+      "capacity": 5,
+      "description": "Medium car",
+      "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+      "availableAt": "2023-11-17T16:31:22.010Z",
+      "createdAt": "2023-11-17T16:31:22.010Z",
+      "createdById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "updatedAt": "2023-11-17T16:31:22.010Z",
+      "updatedById": "1cb69048-68be-474a-bef8-bff01052615c",
+      "isDeleted": false,
+      "deletedAt": null,
+      "deletedById": null,
+      "carBrandId": "72e15674-521d-4dd1-a8ef-4e7773954e23",
+      "carTypeId": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
+      "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+      "carType": {
+        "id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
+        "name": "Crossover"
+      },
+      "createdBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      },
+      "deletedBy": null,
+      "carBrand": {
+        "id": "72e15674-521d-4dd1-a8ef-4e7773954e23",
+        "name": "Suzuki"
+      },
+      "carTransmission": {
+        "id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+        "name": "Manual"
+      },
+      "updatedBy": {
+        "id": "1cb69048-68be-474a-bef8-bff01052615c",
+        "fullName": "Super Admin",
+        "username": "superadmin"
+      }
+    }
+  ]
+}
+```
 #### Delete Car
 
-[delete] http://localhost:7000/api/v1/car/774358bf-5e02-4715-83f2-20a8aae8a7bc
+[put] http://localhost:7000/api/v1/car/delete/774358bf-5e02-4715-83f2-20a8aae8a7bc
 
 => Response
 
@@ -754,5 +920,292 @@ value: photo file
 {
   "message": "Upload success",
   "url": "https://res.cloudinary.com/do5gw4vcx/image/upload/v1699175182/e0aotiuguzv69wdx12xc.png",
+}
+```
+#### Get Car Log
+[get] http://localhost:7000/api/v1/car-log
+
+=> Response
+
+```json
+{
+    "message": "Berhasil mendapatkan data car log",
+    "data": [
+        {
+            "id": "56eadb08-6483-4a14-9587-cb7e33369e75",
+            "action": "Create",
+            "accountId": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+            "carId": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+            "date": "2023-11-18T14:43:08.274Z",
+            "account": {
+                "id": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+                "fullName": "Admin 1",
+                "username": "admin1",
+                "email": "admin1@email.com",
+                "roleId": "2"
+            },
+            "car": {
+                "id": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+                "name": "Cek 3",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        },
+        {
+            "id": "b9cb81b8-4bb0-4fb1-ba6a-bd6f7149ac89",
+            "action": "Delete",
+            "accountId": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+            "carId": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+            "date": "2023-11-18T14:48:34.623Z",
+            "account": {
+                "id": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+                "fullName": "Admin 1",
+                "username": "admin1",
+                "email": "admin1@email.com",
+                "roleId": "2"
+            },
+            "car": {
+                "id": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+                "name": "Cek 3",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        }
+    ]
+}
+```
+### Log
+  #### Get Log
+[get] http://localhost:7000/api/v1/car-log
+  =>Response
+  ```json
+{
+    "message": "Berhasil mendapatkan data car log",
+    "data": [
+        {
+            "id": "56eadb08-6483-4a14-9587-cb7e33369e75",
+            "action": "Create",
+            "accountId": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+            "carId": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+            "date": "2023-11-18T14:43:08.274Z",
+            "account": {
+                "id": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+                "fullName": "Admin 1",
+                "username": "admin1",
+                "email": "admin1@email.com",
+                "roleId": "2"
+            },
+            "car": {
+                "id": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+                "name": "Cek 3",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        },
+        {
+            "id": "b9cb81b8-4bb0-4fb1-ba6a-bd6f7149ac89",
+            "action": "Delete",
+            "accountId": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+            "carId": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+            "date": "2023-11-18T14:48:34.623Z",
+            "account": {
+                "id": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+                "fullName": "Admin 1",
+                "username": "admin1",
+                "email": "admin1@email.com",
+                "roleId": "2"
+            },
+            "car": {
+                "id": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+                "name": "Cek 3",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        },
+        {
+            "id": "005ccfe4-51af-4a77-945c-362c84adb623",
+            "action": "Delete",
+            "accountId": "1cb69048-68be-474a-bef8-bff01052615c",
+            "carId": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
+            "date": "2023-11-23T23:02:21.904Z",
+            "account": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin",
+                "email": "superadmin@email.com",
+                "roleId": "1"
+            },
+            "car": {
+                "id": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
+                "name": "Toyota Alphard",
+                "price": "1000000.00",
+                "year": 2023,
+                "capacity": 8
+            }
+        },
+        {
+            "id": "f42f0ccd-9cfe-47b2-a8fa-871251a3b0f3",
+            "action": "Delete",
+            "accountId": "1cb69048-68be-474a-bef8-bff01052615c",
+            "carId": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+            "date": "2023-11-23T23:08:59.368Z",
+            "account": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin",
+                "email": "superadmin@email.com",
+                "roleId": "1"
+            },
+            "car": {
+                "id": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+                "name": "Cek 3",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        },
+        {
+            "id": "2e3e9a15-84b6-4f9f-a095-57f4f5e26588",
+            "action": "Create",
+            "accountId": "1cb69048-68be-474a-bef8-bff01052615c",
+            "carId": "43ad8816-61c3-49b4-86e7-9f9283ef39b8",
+            "date": "2023-11-24T10:21:01.109Z",
+            "account": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin",
+                "email": "superadmin@email.com",
+                "roleId": "1"
+            },
+            "car": {
+                "id": "43ad8816-61c3-49b4-86e7-9f9283ef39b8",
+                "name": "New Toyota Avanza",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        },
+        {
+            "id": "e6a11f53-9a17-4fb9-b38d-559eec29bd2a",
+            "action": "Create",
+            "accountId": "1cb69048-68be-474a-bef8-bff01052615c",
+            "carId": "7cad04d1-8a74-47d7-ab4e-cb974c2afa21",
+            "date": "2023-11-24T10:29:41.260Z",
+            "account": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin",
+                "email": "superadmin@email.com",
+                "roleId": "1"
+            },
+            "car": {
+                "id": "7cad04d1-8a74-47d7-ab4e-cb974c2afa21",
+                "name": "New Toyota Avanza 2",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        }
+    ]
+}
+```
+### Auth 
+  #### Login
+[post] http://localhost:7000/api/v1/auth/login
+  => Request 
+  ```json
+{
+    "email": "superadmin",
+    "password": "superadmin123/"
+}
+  ```
+
+=> Response
+```json
+{
+    "message": "Berhasil login",
+    "data": {
+        "email": "superadmin@email.com",
+        "role": "SuperAdmin",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InN1cGVyYWRtaW5AZW1haWwuY29tIiwiVXNlck5hbWUiOiJzdXBlcmFkbWluIiwiUm9sZSI6IlN1cGVyQWRtaW4iLCJSb2xlSWQiOiIxIiwiQWNjb3VudElkIjoiMWNiNjkwNDgtNjhiZS00NzRhLWJlZjgtYmZmMDEwNTI2MTVjIiwiaWF0IjoxNzAwNTIwNDg4LCJleHAiOjE3MDA2MDY4ODgsImlzcyI6IkZhZGhsaWgifQ.QnWyAgaB-dUU0lwASEJrN57ymAz7oGx9IE3qQ88sQRc"
+    }
+}
+```
+
+#### Register Member
+[post] http://localhost:7000/api/v1/auth/register-customer
+
+=> Request
+```json
+{
+    "fullName": "Fadhlih",
+    "address": "Bekasi",
+    "phone": "0897322332",
+    "birthDate": "2000-11-17",
+    "username": "fadhlih",
+    "email": "fadhlih@email.com",
+    "password": "customer123/",
+    "pictureUrl": "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"
+}
+```
+
+=> Response
+```json
+{
+    "message": "Berhasil registrasi customer",
+    "data": {
+        "id": "7a67cac2-3cda-4a17-b967-1e5c342a3e49",
+        "fullName": "Fadhlih",
+        "address": "Bekasi",
+        "phone": "0897322332",
+        "birthDate": "2000-11-17T07:00:00.000Z",
+        "createdAt": "2023-11-21T05:49:11.186Z",
+        "username": "fadhlih",
+        "email": "fadhlih@email.com",
+        "password": "-",
+        "pictureUrl": "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg",
+        "roleId": "3"
+    }
+}
+```
+
+#### Register admin account
+[post] http://localhost:7000/api/v1/auth/register-admin
+
+=> Request
+```json
+{
+    "fullName": "Admin 2",
+    "address": "Bekasi",
+    "phone": "089732382232",
+    "birthDate": "2000-11-20",
+    "username": "admin2",
+    "email": "admin2@email.com",
+    "password": "admin123/",
+    "pictureUrl": "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"
+}
+```
+
+=> Response
+```json
+{
+    "message": "Berhasil membuat akun admin",
+    "data": {
+        "id": "b261daf0-120c-4868-9b4b-11aa51a3fcc5",
+        "fullName": "Admin 2",
+        "address": "Bekasi",
+        "phone": "089732382232",
+        "birthDate": "2000-11-20T07:00:00.000Z",
+        "createdAt": "2023-11-21T05:51:15.545Z",
+        "username": "admin2",
+        "email": "admin2@email.com",
+        "password": "-",
+        "pictureUrl": "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg",
+        "roleId": "2"
+    }
 }
 ```
