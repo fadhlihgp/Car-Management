@@ -322,13 +322,13 @@ http://localhost:7000/api-docs
     "year": 2020,
     "size": "Medium",
     "availability": true,
-    "available_at": "2023-11-09T14:00:00",
+    "availableAt": "2023-11-09T14:00:00",
     "capacity": 6,
     "description": "Avanza new car",
-    "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-    "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-    "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-    "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08"
+    "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+    "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+    "carBrandId": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+    "carTypeId": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08"
 }
 ```
 
@@ -338,20 +338,22 @@ http://localhost:7000/api-docs
 {
     "message": "Data berhasil disimpan",
     "data": {
-        "name": "Toyota Avanza",
-        "price": 300000,
-        "size": "Medium",
-        "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-        "year": 2020,
-        "availability": true,
-        "capacity": 6,
-        "description": "Avanza new car",
-        "available_at": "2023-11-09T14:00:00",
-        "updated_at": "2023-11-09T14:25:02.969Z",
-        "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-        "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-        "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-        "id": "7212a1f8-ef58-4806-83f6-2c57f3659a11"
+      "id": "string",
+      "name": "string",
+      "price": 250000,
+      "year": 2019,
+      "size": "Medium",
+      "availability": true,
+      "capacity": 6,
+      "description": "string",
+      "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+      "availableAt": "2023-11-17T16:31:22.010Z",
+      "createdAt": "2023-11-17T16:31:22.010Z",
+      "createdById": "1cb69048-68be-474a-bef8-bff0105261aa",
+      "isDeleted": false,
+      "carBrandId": "1cb69048-68be-474a-bef8-bff0105261aa",
+      "carTypeId": "1cb69048-68be-474a-bef8-bff0105261aa",
+      "carTransmissionId": "1cb69048-68be-474a-bef8-bff0105261aa"
     }
 }
 ```
@@ -368,13 +370,13 @@ http://localhost:7000/api-docs
     "year": 2019,
     "size": "Large",
     "availability": true,
-    // "available_at": "2023-11-09T14:00:00",
+    // "availableAt": "2023-11-09T14:00:00",
     "capacity": 6,
     "description": "Avanza new car and updated",
-    "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-    "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
-    "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-    "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08"
+    "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+    "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+    "carBrandId": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+    "carTypeId": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08"
 }
 ```
 
@@ -392,13 +394,13 @@ http://localhost:7000/api-docs
         "availability": true,
         "capacity": 6,
         "description": "Avanza new car and updated",
-        "picture_url": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
-        "available_at": "2023-11-09T07:00:00.000Z",
-        "updated_at": "2023-11-09T14:33:18.922Z",
-        "is_deleted": false,
-        "car_brand_id": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
-        "car_type_id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
-        "car_transmission_id": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
+        "pictureUrl": "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg",
+        "availableAt": "2023-11-09T07:00:00.000Z",
+        "updatedAt": "2023-11-09T14:33:18.922Z",
+        "isDeleted": false,
+        "carBrandId": "a084a9d2-0c01-4832-bfc1-39ded8b13769",
+        "carTypeId": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
+        "carTransmissionId": "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc",
         "carType": {
             "id": "4a35dc3f-a948-4acd-a8b1-d8f18d5e1d08",
             "name": "Crossover"
@@ -891,7 +893,7 @@ http://localhost:7000/api-docs
 ```
 #### Delete Car
 
-[delete] http://localhost:7000/api/v1/car/774358bf-5e02-4715-83f2-20a8aae8a7bc
+[put] http://localhost:7000/api/v1/car/delete/774358bf-5e02-4715-83f2-20a8aae8a7bc
 
 => Response
 
@@ -966,6 +968,143 @@ value: photo file
             "car": {
                 "id": "973a78d5-61cb-4539-bcea-3eeca840aaae",
                 "name": "Cek 3",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        }
+    ]
+}
+```
+### Log
+  #### Get Log
+[get] http://localhost:7000/api/v1/car-log
+  =>Response
+  ```json
+{
+    "message": "Berhasil mendapatkan data car log",
+    "data": [
+        {
+            "id": "56eadb08-6483-4a14-9587-cb7e33369e75",
+            "action": "Create",
+            "accountId": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+            "carId": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+            "date": "2023-11-18T14:43:08.274Z",
+            "account": {
+                "id": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+                "fullName": "Admin 1",
+                "username": "admin1",
+                "email": "admin1@email.com",
+                "roleId": "2"
+            },
+            "car": {
+                "id": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+                "name": "Cek 3",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        },
+        {
+            "id": "b9cb81b8-4bb0-4fb1-ba6a-bd6f7149ac89",
+            "action": "Delete",
+            "accountId": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+            "carId": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+            "date": "2023-11-18T14:48:34.623Z",
+            "account": {
+                "id": "742e7a25-f903-4a59-9a67-5139fde6c6f4",
+                "fullName": "Admin 1",
+                "username": "admin1",
+                "email": "admin1@email.com",
+                "roleId": "2"
+            },
+            "car": {
+                "id": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+                "name": "Cek 3",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        },
+        {
+            "id": "005ccfe4-51af-4a77-945c-362c84adb623",
+            "action": "Delete",
+            "accountId": "1cb69048-68be-474a-bef8-bff01052615c",
+            "carId": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
+            "date": "2023-11-23T23:02:21.904Z",
+            "account": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin",
+                "email": "superadmin@email.com",
+                "roleId": "1"
+            },
+            "car": {
+                "id": "b464e8ae-8f9c-41c2-93e7-39fbc284f88b",
+                "name": "Toyota Alphard",
+                "price": "1000000.00",
+                "year": 2023,
+                "capacity": 8
+            }
+        },
+        {
+            "id": "f42f0ccd-9cfe-47b2-a8fa-871251a3b0f3",
+            "action": "Delete",
+            "accountId": "1cb69048-68be-474a-bef8-bff01052615c",
+            "carId": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+            "date": "2023-11-23T23:08:59.368Z",
+            "account": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin",
+                "email": "superadmin@email.com",
+                "roleId": "1"
+            },
+            "car": {
+                "id": "973a78d5-61cb-4539-bcea-3eeca840aaae",
+                "name": "Cek 3",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        },
+        {
+            "id": "2e3e9a15-84b6-4f9f-a095-57f4f5e26588",
+            "action": "Create",
+            "accountId": "1cb69048-68be-474a-bef8-bff01052615c",
+            "carId": "43ad8816-61c3-49b4-86e7-9f9283ef39b8",
+            "date": "2023-11-24T10:21:01.109Z",
+            "account": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin",
+                "email": "superadmin@email.com",
+                "roleId": "1"
+            },
+            "car": {
+                "id": "43ad8816-61c3-49b4-86e7-9f9283ef39b8",
+                "name": "New Toyota Avanza",
+                "price": "300000.00",
+                "year": 2020,
+                "capacity": 6
+            }
+        },
+        {
+            "id": "e6a11f53-9a17-4fb9-b38d-559eec29bd2a",
+            "action": "Create",
+            "accountId": "1cb69048-68be-474a-bef8-bff01052615c",
+            "carId": "7cad04d1-8a74-47d7-ab4e-cb974c2afa21",
+            "date": "2023-11-24T10:29:41.260Z",
+            "account": {
+                "id": "1cb69048-68be-474a-bef8-bff01052615c",
+                "fullName": "Super Admin",
+                "username": "superadmin",
+                "email": "superadmin@email.com",
+                "roleId": "1"
+            },
+            "car": {
+                "id": "7cad04d1-8a74-47d7-ab4e-cb974c2afa21",
+                "name": "New Toyota Avanza 2",
                 "price": "300000.00",
                 "year": 2020,
                 "capacity": 6

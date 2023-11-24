@@ -32,10 +32,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // ########################### Routing ###################################
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/api/v1", authRouter);
 app.use("/api/v1", authorizedSuperAdminAndAdmin, carBrandRouter);
 app.use("/api/v1", authorizedSuperAdminAndAdmin, carTypeRouter);
 app.use("/api/v1", authorizedSuperAdminAndAdmin, carTransmissionRouter);
-app.use("/api/v1", authRouter);
 app.use("/api/v1" , authorizedSuperAdminAndAdmin,carRouter);
 app.use("/api/v1", authorizedSuperAdminAndAdmin, carLogRoute);
 app.post("/api/v1/photo/upload", authenticateUser ,upload.single("picture"), uploadService);

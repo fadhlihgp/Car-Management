@@ -10,9 +10,7 @@ tags:
   - name: Car Type
   - name: Car Transmission
   - name: Car
-    description: Everything about car
-  - name: Auth
-    description: Authentication and authorization
+  - name: Auth/User
 
 paths:
 # Car Brand
@@ -178,6 +176,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+
     post:
       tags:
         - Car Transmission
@@ -210,18 +209,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
 
-
-  /api/v1/cars:
+# Car
+  /api/v1/car:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - Car
-      #      parameters:
-      #        -in: query
-      #        name: car_brand
-      #        description: query param of car
-      #        required: false
-      #        schema:
-      #          type: string
+      parameters:
+        - in: query
+          name: name
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: availability
+          required: false
+          schema:
+            type: boolean
+
 
       responses:
         "200":
@@ -235,15 +246,25 @@ paths:
                     type: string
                     example: "Successfully get data"
                   data:
-                    type: object
-                    properties:
-                      id:
-                        type: string
-                        example: "dsag12-dsisdg2-2723-ssdig"
-                      name:
-                        type: string
-                        example: "Toyota avanza"
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/CarGet"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
     post:
+      tags:
+        - Car
       security:
         - bearerAuth: []
       requestBody:
@@ -252,7 +273,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CarPost'
+              $ref: '#/components/schemas/CarRequest'
       responses:
         "201":
           description: Successfully create car
@@ -263,20 +284,28 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: "Successfully create data"
+                    example: "Data berhasil disimpan"
                   data:
-                    type: object
-                    properties:
-                      id:
-                        type: string
-                        example: "dsag12-dsisdg2-2723-ssdig"
-                      name:
-                        type: string
-                        example: "Toyota avanza"
+                    $ref: "#/components/schemas/PostCarTypes"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
-
-  /api/v1/cars/{id}:
+  /api/v1/car/{id}:
     get:
+      security:
+        - bearerAuth: [ ]
+      tags:
+        - Car
       parameters:
         - in: path
           name: id
@@ -286,8 +315,8 @@ paths:
             type: string
 
       responses:
-        "404":
-          description: Not Found
+        "200":
+          description: Successfully get data
           content:
             application/json:
               schema:
@@ -295,6 +324,269 @@ paths:
                 properties:
                   message:
                     type: string
+                    example: "Successfully get data"
+                  data:
+                    $ref: "#/components/schemas/CarGet"
+
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Data not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    put:
+      tags:
+        - Car
+      security:
+        - bearerAuth: [ ]
+      parameters:
+        - in: path
+          name: id
+          description: id of car
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: payload to update a car
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarRequest'
+
+      responses:
+        "200":
+          description: Successfully update car
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Data berhasil disimpan"
+                  data:
+                    $ref: "#/components/schemas/PostCarTypes"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/car/delete/{id}:
+    put:
+      tags:
+        - Car
+      security:
+        - bearerAuth: [ ]
+      parameters:
+        - in: path
+          name: id
+          description: id of car
+          required: true
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: Successfully delete car
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Data berhasil dihapus"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Data not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+# Auth
+  /api/v1/auth/login:
+   post:
+     tags:
+       - Auth/User
+     requestBody:
+       description: For login
+       required: true
+       content:
+         application/json:
+           schema:
+             $ref: "#/components/schemas/Login"
+     responses:
+       "200":
+         description: Success login
+         content:
+           application/json:
+             schema:
+              $ref: "#/components/schemas/LoginResponse"
+       "401":
+         description: Unauthorized
+         content:
+           application/json:
+             schema:
+               $ref: '#/components/schemas/ErrorResponse'
+       "500":
+         description: Internal Server Error
+         content:
+           application/json:
+             schema:
+               $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/auth/register-customer:
+    post:
+      tags:
+        - Auth/User
+      requestBody:
+        description: For register customer role
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterRequest"
+      responses:
+        "200":
+          description: Success login
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegisterResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/auth/register-admin:
+    post:
+      security:
+        - bearerAuth: []
+      tags:
+        - Auth/User
+      requestBody:
+        description: For register admin role
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterRequest"
+      responses:
+        "200":
+          description: Success login
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegisterResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/auth/getCurrentUser:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - Auth/User
+      responses:
+        "200":
+          description: Successfully get data user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegisterResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+# Log
+  /api/v1/car-log:
+    get:
+      tags:
+        - Log
+      security:
+        - bearerAuth: []
+      description: Logging car activity
+      responses:
+        "200":
+          description: Get data logs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CarLogResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
 
 components:
   securitySchemes:
@@ -311,6 +603,19 @@ components:
           type: string
           example: "Error Message"
 
+    GetUserObject:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "string"
+        fullName:
+          type: string
+          example: "string"
+        userName:
+          type: string
+          example: "string"
+
     GetCarTypes:
       type: object
       properties:
@@ -324,11 +629,120 @@ components:
     PostCarTypes:
       type: object
       properties:
+        id:
+          type: string
+          example: "string"
         name:
           type: string
           example: "string"
+        price:
+          type: number
+          example: 250000
+        year:
+          type: number
+          example: 2019
+        size:
+          type: string
+          example: "Medium"
+        availability:
+          type: boolean
+          example: true
+        capacity:
+          type: number
+          example: 6
+        description:
+          type: string
+          example: "string"
+        pictureUrl:
+          type: string
+          example: "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg"
+        availableAt:
+          type: string
+          example: "2023-11-17T16:31:22.010Z"
+        createdAt:
+          type: string
+          example: "2023-11-17T16:31:22.010Z"
+        createdById:
+          type: string
+          example: "1cb69048-68be-474a-bef8-bff0105261aa"
+        isDeleted:
+          type: boolean
+          example: false
+        carBrandId:
+          type: string
+          example: "1cb69048-68be-474a-bef8-bff0105261aa"
+        carTypeId:
+          type: string
+          example: "1cb69048-68be-474a-bef8-bff0105261aa"
+        carTransmissionId:
+          type: string
+          example: "1cb69048-68be-474a-bef8-bff0105261aa"
 
-    CarPost:
+    CarGet:
+     type: object
+     properties:
+       id:
+         type: string
+         example: "string"
+       name:
+        type: string
+        example: "string"
+       price:
+         type: number
+         example: 250000
+       year:
+         type: number
+         example: 2019
+       size:
+        type: string
+        example: "Medium"
+       availability:
+        type: boolean
+        example: true
+       capacity:
+        type: number
+        example: 6
+       description:
+         type: string
+         example: "string"
+       pictureUrl:
+         type: string
+         example: "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg"
+       availableAt:
+         type: string
+         example: "2023-11-17T16:31:22.010Z"
+       createdAt:
+         type: string
+         example: "2023-11-17T16:31:22.010Z"
+       createdById:
+         type: string
+         example: "1cb69048-68be-474a-bef8-bff0105261aa"
+       isDeleted:
+         type: boolean
+         example: false
+       carBrandId:
+         type: string
+         example: "1cb69048-68be-474a-bef8-bff0105261aa"
+       carTypeId:
+         type: string
+         example: "1cb69048-68be-474a-bef8-bff0105261aa"
+       carTransmissionId:
+         type: string
+         example: "1cb69048-68be-474a-bef8-bff0105261aa"
+       carBrand:
+         $ref: "#/components/schemas/GetCarTypes"
+       carTransmission:
+         $ref: "#/components/schemas/GetCarTypes"
+       carType:
+         $ref: "#/components/schemas/GetCarTypes"
+       deletedBy:
+         $ref: "#/components/schemas/GetUserObject"
+       createdBy:
+         $ref: "#/components/schemas/GetUserObject"
+       updatedBy:
+         $ref: "#/components/schemas/GetUserObject"
+
+    CarRequest:
       type: object
       properties:
         name:
@@ -346,5 +760,233 @@ components:
         availability:
           type: boolean
           example: true
+        availableAt:
+          type: string
+          example: "2023-11-09"
+        capacity:
+          type: number
+          example: 6
+        description:
+          type: string
+          example: "Avanza new car"
+        pictureUrl:
+          type: string
+          example: "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg"
+        carTransmissionId:
+          type: string
+          example: "adb110d8-0ff0-45cc-a2ee-f5232b78cfcc"
+        carBrandId:
+          type: string
+          example: "adb110d8-0ff0-45cc-a2ee-f5232b78cfaa"
+        carTypeId:
+          type: string
+          example: "adb110d8-0ff0-45cc-a2ee-f5232b78cfdd"
+
+    Login:
+      type: object
+      properties:
+        email:
+          type: string
+          example: "user@example.com"
+        password:
+          type: string
+          example: "password123/"
+
+    LoginResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Berhasil login"
+        data:
+          type: object
+          properties:
+            email:
+              type: string
+              example: "user@example.com"
+            role:
+              type: string
+              example: "SuperAdmin"
+            token:
+              type: string
+              example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InN1cGVyYWRtaW5AZW1haWwuY29tIiwiVXNlck5hbWUiOiJzdXBlcmFkbWluIiwiUm9sZSI6IlN1cGVyQWRtaW4iLCJSb2xlSWQiOiIxIiwiQWNjb3VudElkIjoiMWNiNjkwNDgtNjhiZS00NzRhLWJlZjgtYmZmMDEwNTI2MTVjIiwiaWF0IjoxNzAwNzk4MjMwLCJleHAiOjE3MDA4ODQ2MzAsImlzcyI6IkZhZGhsaWgifQ.MRofRKFhvCh81g2c9PFAPgwbt8TedeReIZXNh3Rwqqq"
+
+    RegisterRequest:
+      type: object
+      properties:
+        fullName:
+          type: string
+          example: "Your fullname"
+        address:
+          type: string
+          example: "Your address"
+        phone:
+          type: string
+          example: "08211982"
+        birthDate:
+          type: string
+          example: "2000-02-25"
+        username:
+          type: string
+          example: "username"
+        email:
+          type: string
+          example: "user@example.com"
+        password:
+          type: string
+          example: "password123/"
+
+    RegisterResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Berhasil registrasi customer"
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              example: "08995fa4-d046-4ac2-963a-9de0cb42c800"
+            fullName:
+              type: string
+              example: "Your Fullname"
+            address:
+              type: string
+              example: "Your address"
+            phone:
+              type: string
+              example: "08211982"
+            birthDate:
+              type: string
+              example: "2000-11-17T07:00:00.000Z"
+            createdAt:
+              type: string
+              example: "2023-11-24T12:41:59.851Z"
+            username:
+              type: string
+              example: "username"
+            email:
+              type: string
+              example: "user@example.com"
+            password:
+              type: string
+              example: "-"
+            pictureUrl:
+              type: string
+              example: "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"
+            roleId:
+              type: string
+              example: "3"
+
+    GetCurrentUserResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Berhasil mendapatkan data user"
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              example: "08995fa4-d046-4ac2-963a-9de0cb42c800"
+            fullName:
+              type: string
+              example: "Your Fullname"
+            address:
+              type: string
+              example: "Your address"
+            phone:
+              type: string
+              example: "08211982"
+            birthDate:
+              type: string
+              example: "2000-11-17T07:00:00.000Z"
+            createdAt:
+              type: string
+              example: "2023-11-24T12:41:59.851Z"
+            username:
+              type: string
+              example: "username"
+            email:
+              type: string
+              example: "user@example.com"
+            password:
+              type: string
+              example: "-"
+            pictureUrl:
+              type: string
+              example: "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"
+            roleId:
+              type: string
+              example: "3"
+
+    CarLogObject:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "56eadb08-6483-4a14-9587-cb7e33369e11"
+        action:
+          type: string
+          example: "Create"
+        accountId:
+          type: string
+          example: "56eadb08-6483-4a14-9587-cb7e33369e00"
+        carId:
+          type: string
+          example: "56eadb08-6483-4a14-9587-cb7e33369e12"
+        date:
+          type: string
+          example: "2023-11-18T14:43:08.274Z"
+        account:
+          type: object
+          properties:
+            id:
+              type: string
+              example: "56eadb08-6483-4a14-9587-cb7e33361275"
+            fullName:
+              type: string
+              example: "Admin 1"
+            username:
+              type: string
+              example: "admin1"
+            email:
+              type: string
+              example: "admin1@example.com"
+            roleId:
+              type: string
+              example: "2"
+        car:
+          type: object
+          properties:
+            id:
+              type: string
+              example: "56eadb08-6483-4114-9587-cb7e33369e75"
+            name:
+              type: string
+              example: "Toyota avanza"
+            price:
+              type: number
+              example: 300000
+            year:
+              type: number
+              example: 2019
+            capacity:
+              type: number
+              example: 6
+
+
+    CarLogResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Berhasil mendapatkan data car log"
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/CarLogObject"
 
 
