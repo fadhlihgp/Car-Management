@@ -13,7 +13,7 @@ tags:
   - name: Auth/User
 
 paths:
-# Car Brand
+  # Car Brand
   /api/v1/car-brand:
     get:
       tags:
@@ -33,19 +33,19 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/GetCarTypes'
+                      $ref: "#/components/schemas/GetCarTypes"
         "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
     post:
       tags:
         - Car Brand
@@ -57,34 +57,34 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PostCarTypes'
+              $ref: "#/components/schemas/PostCarTypes"
       responses:
         "201":
           description: Successfully created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCarTypes'
+                $ref: "#/components/schemas/GetCarTypes"
         "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
-# Car Type
+  # Car Type
   /api/v1/car-type:
     get:
       tags:
         - Car Type
       security:
-        - bearerAuth: [ ]
+        - bearerAuth: []
       responses:
         "200":
           description: Successfully get data
@@ -98,58 +98,58 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/GetCarTypes'
+                      $ref: "#/components/schemas/GetCarTypes"
         "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
     post:
       tags:
         - Car Type
       security:
-        - bearerAuth: [ ]
+        - bearerAuth: []
       requestBody:
         description: Payload create Car Type
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PostCarTypes'
+              $ref: "#/components/schemas/PostCarTypes"
       responses:
         "201":
           description: Successfully created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCarTypes'
+                $ref: "#/components/schemas/GetCarTypes"
         "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
-# Car Transmission
+  # Car Transmission
   /api/v1/car-transmission:
     get:
       tags:
         - Car Transmission
       security:
-        - bearerAuth: [ ]
+        - bearerAuth: []
       responses:
         "200":
           description: Successfully get data
@@ -163,53 +163,134 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/GetCarTypes'
+                      $ref: "#/components/schemas/GetCarTypes"
         "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
     post:
       tags:
         - Car Transmission
       security:
-        - bearerAuth: [ ]
+        - bearerAuth: []
       requestBody:
         description: Payload create Car Transmission
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PostCarTypes'
+              $ref: "#/components/schemas/PostCarTypes"
       responses:
         "201":
           description: Successfully created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCarTypes'
+                $ref: "#/components/schemas/GetCarTypes"
         "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
-# Car
+  # Car
+
+  /api/v1/no-auth/car:
+    get:
+      tags:
+        - Car
+      parameters:
+        - in: query
+          name: name
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: availability
+          required: false
+          schema:
+            type: boolean
+
+      responses:
+        "200":
+          description: Successfully get data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Successfully get data"
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/CarGet"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /api/v1/no-auth/car/{id}:
+      get:
+        tags:
+          - Car
+        parameters:
+          - in: path
+            name: id
+            description: id of car
+            required: true
+            schema:
+              type: string
+
+        responses:
+          "200":
+            description: Successfully get data
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: "Successfully get data"
+                    data:
+                      $ref: "#/components/schemas/CarGet"
+          "404":
+            description: Data not found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorResponse'
+          "500":
+            description: Internal Server Error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorResponse'                
+
   /api/v1/car:
     get:
       security:
@@ -233,7 +314,6 @@ paths:
           schema:
             type: boolean
 
-
       responses:
         "200":
           description: Successfully get data
@@ -254,13 +334,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
     post:
       tags:
@@ -273,7 +353,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CarRequest'
+              $ref: "#/components/schemas/CarRequest"
       responses:
         "201":
           description: Successfully create car
@@ -292,18 +372,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
   /api/v1/car/{id}:
     get:
       security:
-        - bearerAuth: [ ]
+        - bearerAuth: []
       tags:
         - Car
       parameters:
@@ -333,25 +413,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "404":
           description: Data not found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
     put:
       tags:
         - Car
       security:
-        - bearerAuth: [ ]
+        - bearerAuth: []
       parameters:
         - in: path
           name: id
@@ -365,7 +445,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CarRequest'
+              $ref: "#/components/schemas/CarRequest"
 
       responses:
         "200":
@@ -385,20 +465,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
   /api/v1/car/delete/{id}:
     put:
       tags:
         - Car
       security:
-        - bearerAuth: [ ]
+        - bearerAuth: []
       parameters:
         - in: path
           name: id
@@ -423,51 +503,51 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "404":
           description: Data not found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
-# Auth
+  # Auth
   /api/v1/auth/login:
-   post:
-     tags:
-       - Auth/User
-     requestBody:
-       description: For login
-       required: true
-       content:
-         application/json:
-           schema:
-             $ref: "#/components/schemas/Login"
-     responses:
-       "200":
-         description: Success login
-         content:
-           application/json:
-             schema:
-              $ref: "#/components/schemas/LoginResponse"
-       "401":
-         description: Unauthorized
-         content:
-           application/json:
-             schema:
-               $ref: '#/components/schemas/ErrorResponse'
-       "500":
-         description: Internal Server Error
-         content:
-           application/json:
-             schema:
-               $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - Auth/User
+      requestBody:
+        description: For login
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Login"
+      responses:
+        "200":
+          description: Success login
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 
   /api/v1/auth/register-customer:
     post:
@@ -492,13 +572,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
   /api/v1/auth/register-admin:
     post:
@@ -525,13 +605,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
   /api/v1/auth/getCurrentUser:
     get:
@@ -551,15 +631,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
-# Log
+  # Log
   /api/v1/car-log:
     get:
       tags:
@@ -579,14 +659,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
-
+                $ref: "#/components/schemas/ErrorResponse"
 
 components:
   securitySchemes:
@@ -679,68 +758,68 @@ components:
           example: "1cb69048-68be-474a-bef8-bff0105261aa"
 
     CarGet:
-     type: object
-     properties:
-       id:
-         type: string
-         example: "string"
-       name:
-        type: string
-        example: "string"
-       price:
-         type: number
-         example: 250000
-       year:
-         type: number
-         example: 2019
-       size:
-        type: string
-        example: "Medium"
-       availability:
-        type: boolean
-        example: true
-       capacity:
-        type: number
-        example: 6
-       description:
-         type: string
-         example: "string"
-       pictureUrl:
-         type: string
-         example: "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg"
-       availableAt:
-         type: string
-         example: "2023-11-17T16:31:22.010Z"
-       createdAt:
-         type: string
-         example: "2023-11-17T16:31:22.010Z"
-       createdById:
-         type: string
-         example: "1cb69048-68be-474a-bef8-bff0105261aa"
-       isDeleted:
-         type: boolean
-         example: false
-       carBrandId:
-         type: string
-         example: "1cb69048-68be-474a-bef8-bff0105261aa"
-       carTypeId:
-         type: string
-         example: "1cb69048-68be-474a-bef8-bff0105261aa"
-       carTransmissionId:
-         type: string
-         example: "1cb69048-68be-474a-bef8-bff0105261aa"
-       carBrand:
-         $ref: "#/components/schemas/GetCarTypes"
-       carTransmission:
-         $ref: "#/components/schemas/GetCarTypes"
-       carType:
-         $ref: "#/components/schemas/GetCarTypes"
-       deletedBy:
-         $ref: "#/components/schemas/GetUserObject"
-       createdBy:
-         $ref: "#/components/schemas/GetUserObject"
-       updatedBy:
-         $ref: "#/components/schemas/GetUserObject"
+      type: object
+      properties:
+        id:
+          type: string
+          example: "string"
+        name:
+          type: string
+          example: "string"
+        price:
+          type: number
+          example: 250000
+        year:
+          type: number
+          example: 2019
+        size:
+          type: string
+          example: "Medium"
+        availability:
+          type: boolean
+          example: true
+        capacity:
+          type: number
+          example: 6
+        description:
+          type: string
+          example: "string"
+        pictureUrl:
+          type: string
+          example: "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg"
+        availableAt:
+          type: string
+          example: "2023-11-17T16:31:22.010Z"
+        createdAt:
+          type: string
+          example: "2023-11-17T16:31:22.010Z"
+        createdById:
+          type: string
+          example: "1cb69048-68be-474a-bef8-bff0105261aa"
+        isDeleted:
+          type: boolean
+          example: false
+        carBrandId:
+          type: string
+          example: "1cb69048-68be-474a-bef8-bff0105261aa"
+        carTypeId:
+          type: string
+          example: "1cb69048-68be-474a-bef8-bff0105261aa"
+        carTransmissionId:
+          type: string
+          example: "1cb69048-68be-474a-bef8-bff0105261aa"
+        carBrand:
+          $ref: "#/components/schemas/GetCarTypes"
+        carTransmission:
+          $ref: "#/components/schemas/GetCarTypes"
+        carType:
+          $ref: "#/components/schemas/GetCarTypes"
+        deletedBy:
+          $ref: "#/components/schemas/GetUserObject"
+        createdBy:
+          $ref: "#/components/schemas/GetUserObject"
+        updatedBy:
+          $ref: "#/components/schemas/GetUserObject"
 
     CarRequest:
       type: object
@@ -977,7 +1056,6 @@ components:
               type: number
               example: 6
 
-
     CarLogResponse:
       type: object
       properties:
@@ -988,5 +1066,3 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/CarLogObject"
-
-

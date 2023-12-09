@@ -11,8 +11,8 @@ export async function up(knex: Knex): Promise<void> {
       table.string("name", 255).notNullable();
     })
     .createTableIfNotExists("car_transmission", (table: Knex.TableBuilder) => {
-        table.string("id", 255).notNullable().primary();
-        table.string("name", 255).notNullable();
+      table.string("id", 255).notNullable().primary();
+      table.string("name", 255).notNullable();
     })
     .createTableIfNotExists("role", (table: Knex.TableBuilder) => {
       table.string("id", 255).notNullable().primary();
@@ -23,7 +23,7 @@ export async function up(knex: Knex): Promise<void> {
       table.string("fullName", 255).notNullable();
       table.text("address").notNullable();
       table.string("phone", 255).notNullable();
-      table.timestamp("birthDate", { useTz: true })
+      table.timestamp("birthDate", { useTz: true });
       table.string("username", 255).unique().notNullable();
       table.string("email", 255).unique().notNullable();
       table.string("password", 255).notNullable();
@@ -43,6 +43,8 @@ export async function up(knex: Knex): Promise<void> {
       table.integer("capacity").notNullable();
       table.text("description");
       table.text("pictureUrl");
+      table.timestamp("startRent", { useTz: true }).defaultTo(knex.fn.now());
+      table.timestamp("finishRent", { useTz: true }).defaultTo(knex.fn.now());
       table.timestamp("availableAt", { useTz: true }).defaultTo(knex.fn.now());
       table.timestamp("createdAt", { useTz: true }).defaultTo(knex.fn.now());
       table.string("createdById", 255);
@@ -65,7 +67,7 @@ export async function up(knex: Knex): Promise<void> {
       table.string("id", 255).notNullable().primary();
       table.string("accountId");
       table.timestamp("date", { useTz: true }).defaultTo(knex.fn.now());
-      table.foreign("accountId").references("id").inTable("account")
+      table.foreign("accountId").references("id").inTable("account");
     })
     .createTableIfNotExists("trx_detail", (table: Knex.TableBuilder) => {
       table.string("id", 255).notNullable().primary();

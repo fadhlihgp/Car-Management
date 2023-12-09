@@ -9,7 +9,7 @@ class CarController {
   async getAll(req: Request, res: Response, _next: NextFunction): Promise<void> {
     const { name = "", size = "", availability = "" } = req.query || {};
     try {
-      jwtHandler.getTokenValue(req);
+      // jwtHandler.getTokenValue(req);
       let cars = await carService.getAll(name.toString(), size.toString(), availability.toString());
       res.status(200).json({
         message: "Berhasil mendapatkan data mobil",
@@ -23,7 +23,7 @@ class CarController {
   async getById(req: Request, res: Response, next: NextFunction): Promise<void> {
     const { id } = req.params;
     try {
-      jwtHandler.getTokenValue(req);
+      // jwtHandler.getTokenValue(req);
       const result = await carService.getById(id);
       res.status(200).json({
         message: "Berhasil mendapatkan data mobil",

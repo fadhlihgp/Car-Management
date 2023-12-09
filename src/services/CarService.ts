@@ -1,13 +1,13 @@
-import {CarModel} from "../models/CarModel";
-import {NotFoundException} from "../exceptions/NotFoundException";
-import {CarRequestDto} from "../dtos/CarDto";
-import {Repository} from "../repositories/Repository";
+import { CarModel } from "../models/CarModel";
+import { NotFoundException } from "../exceptions/NotFoundException";
+import { CarRequestDto } from "../dtos/CarDto";
+import { Repository } from "../repositories/Repository";
 import executeTransactionAsync from "../repositories/ExecuteTransactionAsync";
-import {parsingTime} from "../helpers/ParsingTime";
-import {UnauthorizedException} from "../exceptions/UnauthorizedException";
-import {Modifiers} from "objection";
-import {CarLogService} from "./CarLogService";
-import {CarLogModel} from "../models/CarLogModel";
+import { parsingTime } from "../helpers/ParsingTime";
+import { UnauthorizedException } from "../exceptions/UnauthorizedException";
+import { Modifiers } from "objection";
+import { CarLogService } from "./CarLogService";
+import { CarLogModel } from "../models/CarLogModel";
 
 const { v4: uuidv4 } = require("uuid");
 
@@ -42,14 +42,18 @@ export class CarService {
       },
     ];
 
-    let cars = await this.carRepo.findAllWithCriteriaAndJoin(criteria, [
-      "carBrand",
-      "carTransmission",
-      "carType",
-      "createdBy(selectUser)",
-      "updatedBy(selectUser)",
-      "deletedBy(selectUser)",
-    ], this.carModifiers());
+    let cars = await this.carRepo.findAllWithCriteriaAndJoin(
+      criteria,
+      [
+        "carBrand",
+        "carTransmission",
+        "carType",
+        "createdBy(selectUser)",
+        "updatedBy(selectUser)",
+        "deletedBy(selectUser)",
+      ],
+      this.carModifiers()
+    );
     for (const filter of filterParams) {
       if (!filter.isEmpty) {
         cars = cars.filter(filter.condition);
@@ -64,14 +68,18 @@ export class CarService {
       isDeleted: false,
     };
 
-    const car = await this.carRepo.findWithJoin(criteria, [
-      "carBrand",
-      "carTransmission",
-      "carType",
-      "createdBy(selectUser)",
-      "updatedBy(selectUser)",
-      "deletedBy(selectUser)",
-    ], this.carModifiers());
+    const car = await this.carRepo.findWithJoin(
+      criteria,
+      [
+        "carBrand",
+        "carTransmission",
+        "carType",
+        "createdBy(selectUser)",
+        "updatedBy(selectUser)",
+        "deletedBy(selectUser)",
+      ],
+      this.carModifiers()
+    );
     if (!car) {
       throw new NotFoundException("Data mobil tidak ditemukan");
     } else {
@@ -100,9 +108,9 @@ export class CarService {
         capacity: carRequest.capacity,
         description: carRequest.description,
         availableAt: availableTime,
-        createdAt: parsingTime(new Date()),
+        // createdAt: parsingTime(new Date()),
         createdById: accountId,
-        updatedAt: parsingTime(new Date()),
+        // updatedAt: parsingTime(new Date()),
         updatedById: accountId,
         carBrandId: carRequest.carBrandId,
         carTransmissionId: carRequest.carTransmissionId,
@@ -114,9 +122,9 @@ export class CarService {
         action: "Create",
         carId: car.id,
         accountId: accountId,
-        date: parsingTime(new Date())
-      }
-      const carSave =  await this.carRepo.save(car);
+        date: parsingTime(new Date()),
+      };
+      const carSave = await this.carRepo.save(car);
       await this.carLogService.createCarLog(carLog);
       return carSave;
     });
@@ -131,14 +139,16 @@ export class CarService {
       carUpdate.name = carRequest.name;
       carUpdate.price = carRequest.price;
       carUpdate.size = carRequest.size;
-      carUpdate.updatedAt = parsingTime(new Date());
+      // carUpdate.updatedAt = parsingTime(new Date());
+      carUpdate.updatedAt = new Date();
       carUpdate.updatedById = accountId;
       carUpdate.year = carRequest.year;
       carUpdate.availability = carRequest.availability;
       carUpdate.capacity = carRequest.capacity;
       carUpdate.description = carRequest.description;
       carUpdate.availableAt = carRequest.availableAt;
-      carUpdate.pictureUrl = carRequest.pictureUrl ?? carUpdate.pictureUrl;
+      carUpdate.pictureUrl =
+        !carRequest.pictureUrl || carRequest.pictureUrl === "" ? carUpdate.pictureUrl : carRequest.pictureUrl;
       carUpdate.carBrandId = carRequest.carBrandId ?? carUpdate.carBrandId;
       carUpdate.carTransmissionId = carRequest.carTransmissionId ?? carUpdate.carTransmissionId;
       carUpdate.carTypeId = carRequest.carTypeId ?? carUpdate.carTypeId;
@@ -148,8 +158,8 @@ export class CarService {
         action: "Update",
         carId: carUpdate.id,
         accountId: accountId,
-        date: parsingTime(new Date())
-      }
+        date: parsingTime(new Date()),
+      };
       await this.carLogService.createCarLog(carLog);
       return await this.carRepo.update(id, carUpdate);
     });
@@ -176,8 +186,8 @@ export class CarService {
       action: "Delete",
       carId: findCar.id,
       accountId: accountId,
-      date: parsingTime(new Date())
-    }
+      date: parsingTime(new Date()),
+    };
     await executeTransactionAsync(async () => {
       await this.carLogService.createCarLog(carLog);
       await this.carRepo.update(id, findCar);
@@ -187,11 +197,11 @@ export class CarService {
   private carModifiers(): Modifiers {
     return {
       selectName(builder) {
-        builder.select("name")
+        builder.select("name");
       },
       selectUser(builder) {
-        builder.select("id", "fullName", "username")
-      }
-    }
+        builder.select("id", "fullName", "username");
+      },
+    };
   }
 }

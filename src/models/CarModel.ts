@@ -14,6 +14,8 @@ export class CarModel extends Model {
   capacity!: number;
   description?: string;
   pictureUrl!: string;
+  startRent?: Date;
+  finishRent?:Date;
   availableAt?: Date;
   createdAt!: Date;
   createdById!: string;
