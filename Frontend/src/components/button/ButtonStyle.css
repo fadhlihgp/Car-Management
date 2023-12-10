@@ -1,0 +1,16 @@
+.btn-custom {
+    /*background-color: #5cb85f;*/
+    border-radius: 2px;
+    padding-left: 13px;
+    padding-right: 13px;
+    height: 36px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #4cae4c; /* Change button background color on hover */
+    border-color: #4cae4c; /* Change button border color on hover */
+}
