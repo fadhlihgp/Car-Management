@@ -1,24 +1,24 @@
 import React from "react";
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.min.css";
 import RouterApp from "./routes";
 import {GoogleOAuthProvider} from "@react-oauth/google";
 
-const valueId: string = '835537749245-m9r433pveluph35jl2erb0vbckqj2u7q.apps.googleusercontent.com'
+const valueId: string = "835537749245-m9r433pveluph35jl2erb0vbckqj2u7q.apps.googleusercontent.com";
 // const root = ReactDOM.createRoot(document.getElementById('root'));
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 if (rootElement) {
-    const root = ReactDOM.createRoot(rootElement);
-    root.render(
-        <React.StrictMode>
-            <GoogleOAuthProvider clientId={valueId}>
-                {/*<App />*/}
-                <RouterApp />
-            </GoogleOAuthProvider>
-        </React.StrictMode>
-    );
+	const root = ReactDOM.createRoot(rootElement);
+	root.render(
+		<React.StrictMode>
+			<GoogleOAuthProvider clientId={valueId}>
+				{/*<App />*/}
+				<RouterApp />
+			</GoogleOAuthProvider>
+		</React.StrictMode>
+	);
 }
 
 

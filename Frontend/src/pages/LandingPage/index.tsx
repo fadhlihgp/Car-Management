@@ -10,21 +10,21 @@ import {Link} from "react-router-dom";
 import React from "react";
 
 const LandingPage = () => {
-    return (
-        <div>
-            <Banner>
-                <Link to="/search">
-                    <ButtonCustom name='Mulai Sewa Mobil'/>
-                </Link>
-            </Banner>
-            <WrapperOurService />
-            <WhyUsWrapper />
-            <TestimonialWrapper />
-            <CtaWrapper />
-            <FaqWrapper />
-            <FooterWrapper />
-        </div>
-    )
-}
+	return (
+		<div>
+			<Banner>
+				<Link to="/search">
+					<ButtonCustom name='Mulai Sewa Mobil'/>
+				</Link>
+			</Banner>
+			<WrapperOurService />
+			<WhyUsWrapper />
+			<TestimonialWrapper />
+			<CtaWrapper />
+			<FaqWrapper />
+			<FooterWrapper />
+		</div>
+	);
+};
 
 export default LandingPage;

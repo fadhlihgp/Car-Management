@@ -4,13 +4,13 @@ import BannerPlain from "../../components/BannerPlain";
 import React from "react";
 
 const CarDetailPage = () => {
-    return(
-        <div style={{position: 'relative'}}>
-            <BannerPlain />
-            <CarDetailWrapper />
-            <FooterWrapper />
-        </div>
-    )
-}
+	return(
+		<div style={{position: "relative"}}>
+			<BannerPlain />
+			<CarDetailWrapper />
+			<FooterWrapper />
+		</div>
+	);
+};
 
 export default CarDetailPage;

@@ -1,10 +1,10 @@
 export const listContent = [
-    {
-        name: 'Dashboard',
-        link: '/dashboard'
-    },
-    {
-        name: 'List Car',
-        link: "/cars"
-    }
-]
+	{
+		name: "Dashboard",
+		link: "/dashboard"
+	},
+	{
+		name: "List Car",
+		link: "/cars"
+	}
+];

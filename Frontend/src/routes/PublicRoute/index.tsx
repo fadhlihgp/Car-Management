@@ -4,13 +4,13 @@ import React from "react";
 import {PublicRouteProps} from "./PublicRouteProps";
 
 const PublicRoute = ({children}: PublicRouteProps) => {
-    const isLoggedIn = Cookies.get("token") === undefined;
+	const isLoggedIn = Cookies.get("token") === undefined;
 
-    if (isLoggedIn) {
-        return <>{children}</>;
-    } else {
-        return <Navigate to={"/login"} />;
-    }
+	if (isLoggedIn) {
+		return <>{children}</>;
+	} else {
+		return <Navigate to={"/login"} />;
+	}
 
-}
+};
 export default PublicRoute;

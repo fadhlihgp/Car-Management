@@ -5,14 +5,14 @@ import Card4 from "../card4";
 import React from "react";
 
 const FooterWrapper = () => {
-    return <div className='d-flex justify-content-center mb-5 mt-5'>
-        <div className='w-75 d-flex gap-5'>
-            <Card1 />
-            <Card2 />
-            <Card3 />
-            <Card4 />
-        </div>
-    </div>
-}
+	return <div className='d-flex justify-content-center mb-5 mt-5'>
+		<div className='w-75 d-flex gap-5'>
+			<Card1 />
+			<Card2 />
+			<Card3 />
+			<Card4 />
+		</div>
+	</div>;
+};
 
-export default FooterWrapper
+export default FooterWrapper;
