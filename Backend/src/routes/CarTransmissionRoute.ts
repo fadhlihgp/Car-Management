@@ -1,7 +1,7 @@
 import { Router } from "express";
 import CarTransmissionController from "../controllers/CarTransmissionController";
 
-const carTransmissionRouter = Router()
+const carTransmissionRouter = Router();
 const controller = new CarTransmissionController();
 
 carTransmissionRouter.route("/car-transmission").get(controller.getAll);

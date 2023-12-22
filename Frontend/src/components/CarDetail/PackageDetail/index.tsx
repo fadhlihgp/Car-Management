@@ -10,7 +10,7 @@ const ulTextStyle: React.CSSProperties = {
 };
 const PackageDetail = () => {
 	return(
-		<div>
+		<div data-testid="package-detail">
 			<h4><b>Tentang Paket</b></h4> <br/>
 			<p>Include</p>
 			<ul style={ulTextStyle}>

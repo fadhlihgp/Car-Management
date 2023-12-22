@@ -12,10 +12,13 @@ const BreadcrumpComponent = ({paths}: BreadcrumpComponentProps) => {
 					<Breadcrumb.Item
 						key={index}
 						active={isLast}
-						as={isLast ? "span" : Link}
+						// as={isLast ? "span" : Link}
 					>
-						{!isLast && (<Link to={path.link}>{path.text}</Link>)}
-						{isLast && (<span>{path.text}</span>)}
+						{!isLast ? (
+							<Link to={path.link}>{path.text}</Link>
+						) : (
+							<span>{path.text}</span>
+						)}
 					</Breadcrumb.Item>
 				);
 			})}

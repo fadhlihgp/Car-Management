@@ -21,7 +21,6 @@ const SubSidebar = () => {
 	const { state } = useContext(DashboardContext);
 	const { subSidebarContents, setSubSidebarContents, subSidebarTitle, setSubSidebarTitle, activeItemSubSidebar, setActiveItemSubSidebar} = state;
 
-	// const [activeItem, setActiveItem] = useState(0);
 	const handleCardClick = (index: number) => {
 		setActiveItemSubSidebar(index);
 	};

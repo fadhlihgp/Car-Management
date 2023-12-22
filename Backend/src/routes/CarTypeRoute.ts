@@ -1,7 +1,7 @@
 import { Router } from "express";
 import CarTypeController from "../controllers/CarTypeController";
 
-const carTypeRouter = Router()
+const carTypeRouter = Router();
 const controller = new CarTypeController();
 
 carTypeRouter.route("/car-type").get(controller.getAll);

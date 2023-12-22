@@ -21,23 +21,23 @@ const CardDetailForm = () => {
 				<div className='mb-2'><b>Pencarianmu</b></div>
 				<div className='d-flex justify-content-around'>
 					<div style={{ width: "21.75%" }}>
-						<Form.Label>Tipe Driver</Form.Label>
-						<Form.Control as='select' disabled={disable}>
+						<Form.Label htmlFor="tipeDriverForm">Tipe Driver</Form.Label>
+						<Form.Control id="tipeDriverForm" as='select' disabled={disable}>
 						</Form.Control>
 					</div>
 					<div style={{ width: "21.75%" }}>
-						<Form.Label>Tanggal</Form.Label>
-						<Form.Control type="text" disabled={disable} />
+						<Form.Label htmlFor="dateForm">Tanggal</Form.Label>
+						<Form.Control id="dateForm" type="text" disabled={disable} />
 					</div>
 					<div style={{ width: "21.75%" }}>
-						<Form.Label>Waktu Jemput/Ambil</Form.Label>
-						<Form.Control as='select' disabled={disable}>
+						<Form.Label htmlFor="timePickupForm">Waktu Jemput/Ambil</Form.Label>
+						<Form.Control id="timePickupForm" as='select' disabled={disable}>
 						</Form.Control>
 					</div>
 					<div style={{ width: "21.75%" }}>
-						<Form.Label>Jumlah Penumpang</Form.Label>
+						<Form.Label htmlFor="totalPassangerForm">Jumlah Penumpang</Form.Label>
 						<div className="position-relative">
-							<Form.Control type="text" disabled={disable} />
+							<Form.Control id="totalPassangerForm" type="text" disabled={disable} />
 							<div style={{ margin: "8px" }}>
 							</div>
 						</div>

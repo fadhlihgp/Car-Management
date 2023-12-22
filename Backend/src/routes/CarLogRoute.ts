@@ -5,4 +5,4 @@ const carLogRoute = Router();
 const controller = new CarLogController();
 
 carLogRoute.route("/car-log").get(controller.getAll);
-export default carLogRoute
+export default carLogRoute;

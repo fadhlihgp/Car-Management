@@ -1,6 +1,5 @@
-import { AuthController } from "./controllers/AuthController";
-import express, { Express, Response, Request } from "express";
-import knex, { Knex } from "knex";
+import express, { Express } from "express";
+import knex from "knex";
 import { Model } from "objection";
 import carRouter from "./routes/CarRoute";
 import errorhandler from "./middlewares/errorhandler";
@@ -13,14 +12,17 @@ import authRouter from "./routes/AuthRoute";
 import { authenticateUser, authorizedSuperAdminAndAdmin } from "./middlewares/AuthMiddleware";
 import carLogRoute from "./routes/CarLogRoute";
 import swaggerUi from "swagger-ui-express";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const YAML = require("yamljs");
 import cors from "cors";
 import carRouterNoAuth from "./routes/CarRouterNoAuth";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const uploadService = require("./services/UploadService");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const upload = require("./middlewares/upload");
 
-const app: Express = express();
+export const app: Express = express();
 const swaggerDocument = YAML.load("./openAPI.yaml");
 const port = process.env.PORT;
 
@@ -35,8 +37,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/api/v1", authRouter);
 app.use("/api/v1", carRouterNoAuth);
+app.use("/api/v1",authorizedSuperAdminAndAdmin, carBrandRouter);
 app.use("/api/v1", authorizedSuperAdminAndAdmin, carRouter);
-app.use("/api/v1", authorizedSuperAdminAndAdmin, carBrandRouter);
 app.use("/api/v1", authorizedSuperAdminAndAdmin, carTypeRouter);
 app.use("/api/v1", authorizedSuperAdminAndAdmin, carTransmissionRouter);
 app.use("/api/v1", authorizedSuperAdminAndAdmin, carLogRoute);
@@ -49,5 +51,5 @@ app.use(errorhandler);
 // ==================================================
 
 app.listen(port, (): void => {
-  console.log(`Server running on port ${port}`);
+	console.log(`Server running on port ${port}`);
 });

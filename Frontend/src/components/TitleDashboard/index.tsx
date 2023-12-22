@@ -1,4 +1,3 @@
-import {string} from "prop-types";
 import React from "react";
 import {TitleDashboardProps} from "./TitleDashboardProps";
 import {textStyle} from "./TitleDashboardStyle";
@@ -11,7 +10,5 @@ const TitleDashboard = ({title, children}: TitleDashboardProps) => {
 		</div>
 	);
 };
-TitleDashboard.propTypes = {
-	title: string.isRequired
-};
+
 export default TitleDashboard;

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import CarBrandController from "../controllers/CarBrandController";
 
-const carBrandRouter = Router()
+const carBrandRouter = Router();
 const controller = new CarBrandController();
 
 carBrandRouter.route("/car-brand").get(controller.getAll);

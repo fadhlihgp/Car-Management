@@ -53,7 +53,7 @@ const Profile = ({img, name}: ProfileProps) => {
 	return (
 		<div className="d-flex gap-2 align-items-center">
 			<div>
-				<img src={img} alt="" width='30px'/>
+				<img src={img} alt="profileImage" width='30px'/>
 			</div>
 			<div className="text-middle">{name}</div>
 			<div onClick={handleDropdownClick}>
@@ -65,8 +65,8 @@ const Profile = ({img, name}: ProfileProps) => {
 							style={dropdownMergeStyle}
 							onMouseEnter={dropdowHandleHover}
 							onMouseLeave={dropdownHandleLeaveHover}
+							data-testid="logoutBtn"
 						>Logout</button>
-						{/* Tambahan pilihan lainnya bisa ditambahkan di sini */}
 					</div>
 				)}
 			</div>

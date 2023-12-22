@@ -2,8 +2,8 @@ import { Router } from "express";
 import { AuthController } from "../controllers/AuthController";
 import {authorizedSuperAdmin} from "../middlewares/AuthMiddleware";
 
-const authRouter = Router()
-const authController = new AuthController()
+const authRouter = Router();
+const authController = new AuthController();
 
 
 authRouter.route("/auth/login").post(authController.login);

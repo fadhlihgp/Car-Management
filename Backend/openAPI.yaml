@@ -708,54 +708,9 @@ components:
     PostCarTypes:
       type: object
       properties:
-        id:
-          type: string
-          example: "string"
         name:
           type: string
           example: "string"
-        price:
-          type: number
-          example: 250000
-        year:
-          type: number
-          example: 2019
-        size:
-          type: string
-          example: "Medium"
-        availability:
-          type: boolean
-          example: true
-        capacity:
-          type: number
-          example: 6
-        description:
-          type: string
-          example: "string"
-        pictureUrl:
-          type: string
-          example: "https://cars.usnews.com/static/images/Auto/izmo/Colors/audi_14ttscoupe2a_volcanoredmetallic.jpg"
-        availableAt:
-          type: string
-          example: "2023-11-17T16:31:22.010Z"
-        createdAt:
-          type: string
-          example: "2023-11-17T16:31:22.010Z"
-        createdById:
-          type: string
-          example: "1cb69048-68be-474a-bef8-bff0105261aa"
-        isDeleted:
-          type: boolean
-          example: false
-        carBrandId:
-          type: string
-          example: "1cb69048-68be-474a-bef8-bff0105261aa"
-        carTypeId:
-          type: string
-          example: "1cb69048-68be-474a-bef8-bff0105261aa"
-        carTransmissionId:
-          type: string
-          example: "1cb69048-68be-474a-bef8-bff0105261aa"
 
     CarGet:
       type: object

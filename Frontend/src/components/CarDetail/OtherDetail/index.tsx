@@ -11,7 +11,7 @@ const ulTextStyle: React.CSSProperties = {
 
 const OtherDetail = () => {
 	return(
-		<div>
+		<div data-testid="other-detail">
 			<h4><b>Refund, Reschedule, Overtime</b></h4><br/>
 			<ul style={ulTextStyle}>
 				<li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>

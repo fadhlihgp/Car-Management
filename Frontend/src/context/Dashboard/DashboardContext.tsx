@@ -14,7 +14,7 @@ import {ICar} from "./ICar";
 import {Car} from "../../components/FormCar/Car";
 import {SidebarContent} from "../../components/sidebar/SideBarContent";
 
-interface DashboardContextType {
+export interface DashboardContextType {
     state: {
         fetchStatus: boolean
         setFetchStatus: React.Dispatch<React.SetStateAction<boolean>>

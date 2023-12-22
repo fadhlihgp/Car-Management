@@ -1,13 +1,12 @@
 import { Model, ModelObject } from "objection";
-import { CarModel } from "./CarModel";
 
 export class CarBrandModel extends Model {
-  id!: string;
-  name!: string;
+	id!: string;
+	name!: string;
 
-  static get tableName() {
-    return "car_brand";
-  }
+	static get tableName() {
+		return "car_brand";
+	}
 }
 
 export type CarBrand = ModelObject<CarBrandModel>

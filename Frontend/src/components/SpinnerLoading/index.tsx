@@ -2,7 +2,7 @@ import {Spinner} from "react-bootstrap";
 import React from "react";
 
 interface SpinnerLoading {
-    text: string
+    text?: string
 }
 
 const SpinnerLoading = ({text = "Loading"}: SpinnerLoading) => {

@@ -1,21 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c176395c-6e4f-4a9d-b671-a1528532303d" name="Changes" comment="" />
+    <list default="true" id="c176395c-6e4f-4a9d-b671-a1528532303d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/BannerPlain/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/BannerPlain/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/FormSearch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/FormSearch/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/MainContainer/MainContainerProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/MainContainer/MainContainerProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/MainContainer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/MainContainer/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/car-banner/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/car-banner/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/description/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/description/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/title/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/title/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper-text/WrapperTextProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper-text/WrapperTextProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper-text/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper-text/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper/BannerProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper/BannerProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/breadcrump/BreadcrumpComponentProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/breadcrump/BreadcrumpComponentProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/breadcrump/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/breadcrump/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/button/ButtonCustomProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/button/ButtonCustomProps.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2ZZF8gWad6dYZnVEJsYcVfm0NZv" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "last_opened_file_path": "C:/Fadhlih/Private/Project/Car-Management/Frontend"
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "D:/UpSkill/Web/Binar Academy/Challenge/Car Management/Car Management API/Frontend",
+    "nodejs.jest.jest_package": "D:/UpSkill/Web/Binar Academy/Challenge/Car Management/Car Management API/Frontend/node_modules/react-scripts",
+    "nodejs_package_manager_path": "npm",
+    "show.migrate.to.gradle.popup": "false",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="renders car image with correct alt text" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/Frontend/node_modules/react-scripts" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/Frontend/src/components/banner/car-banner/CarImage.test.tsx" />
+      <test-names>
+        <test-name value="renders car image with correct alt text" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.renders car image with correct alt text" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c176395c-6e4f-4a9d-b671-a1528532303d" name="Changes" comment="" />
+      <created>1702621536430</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702621536430</updated>
+      <workItem from="1702621537766" duration="16000" />
+      <workItem from="1702655364213" duration="121000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
