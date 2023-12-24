@@ -21,8 +21,8 @@ jobs:
           node-version: 18.x
       - name: npm install
         run: npm install
-#      - name: Copy netlify.toml to build directory
-#        run: cp ./Frontend/netlify.toml ./Frontend/
+      - name: Copy netlify.toml to build directory
+        run: cp ./Frontend/netlify.toml ./Frontend/build
       - name: npm build
         run: npm run build
       - name: deployment with netlify
