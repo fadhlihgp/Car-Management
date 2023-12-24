@@ -1,7 +1,7 @@
 import { loginRequestMockData, loginResponseMockData, registerAccountMockData, generateTestToken, currentUserMockData } from "./../mock/MockTest";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import request from "supertest";
-import {app} from "../../index";
+import {app} from "../../../index";
 import { UnauthorizedException } from "../../exceptions/UnauthorizedException";
 import { LoginReqDto } from "../../dtos/AuthDto";
 import { BadRequestException } from "../../exceptions/BadRequestException";

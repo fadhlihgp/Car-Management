@@ -2,7 +2,7 @@ import { carCreateMockData, carUpdateMockData, generateTestToken } from "./../mo
 import { carMockData } from "../mock/MockTest";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import request from "supertest";
-import {app} from "../../index";
+import {app} from "../../../index";
 import { NotFoundException } from "../../exceptions/NotFoundException";
 
 const token: string = generateTestToken();

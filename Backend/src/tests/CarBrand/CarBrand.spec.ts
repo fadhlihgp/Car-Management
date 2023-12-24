@@ -2,7 +2,7 @@ import { generateTestToken } from "./../mock/MockTest";
 import { carBrandMockData } from "../mock/MockTest";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import request from "supertest";
-import {app} from "../../index";
+import {app} from "../../../index";
 
 const token: string = generateTestToken();
 

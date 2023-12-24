@@ -1,10 +1,11 @@
 const knexInstance = {
 	client: "postgresql",
 	connection: {
-		// connectionString: process.env.DB_URL,
-		database: process.env.DB_NAME || "car-management_db",
+		host: "binar-car-db.internal",
+		port: 5432,
+		database: process.env.DB_NAME || "binar_car_backend",
 		user: process.env.DB_USER || "postgres",
-		password: process.env.DB_PASS || "postgres",
+		password: process.env.DB_PASS || "Hf1kNwe3TY5sDia",
 	},
 };
 
