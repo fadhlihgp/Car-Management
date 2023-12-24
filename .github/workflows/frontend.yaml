@@ -22,7 +22,7 @@ jobs:
       - name: npm install
         run: npm install
       - name: Copy netlify.toml to build directory
-        run: cp .Frontend/netlify.toml ./Frontend/
+        run: cp ./Frontend/netlify.toml ./Frontend/
       - name: npm build
         run: npm run build
       - name: deployment with netlify

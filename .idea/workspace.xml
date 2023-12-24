@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c176395c-6e4f-4a9d-b671-a1528532303d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/frontend.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/frontend.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c176395c-6e4f-4a9d-b671-a1528532303d" name="Changes" comment="complete deployment ci/cd" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,6 +83,14 @@
       <workItem from="1702655364213" duration="121000" />
       <workItem from="1703388332322" duration="3684000" />
     </task>
+    <task id="LOCAL-00001" summary="complete deployment ci/cd">
+      <created>1703395451198</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1703395451198</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,5 +106,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="complete deployment ci/cd" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete deployment ci/cd" />
   </component>
 </project>
