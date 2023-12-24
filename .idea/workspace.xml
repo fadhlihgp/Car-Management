@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c176395c-6e4f-4a9d-b671-a1528532303d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/BannerPlain/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/BannerPlain/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/FormSearch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/FormSearch/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/MainContainer/MainContainerProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/MainContainer/MainContainerProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/MainContainer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/MainContainer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/car-banner/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/car-banner/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/description/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/description/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/title/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/title/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper-text/WrapperTextProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper-text/WrapperTextProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper-text/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper-text/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper/BannerProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper/BannerProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/banner/wrapper/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/breadcrump/BreadcrumpComponentProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/breadcrump/BreadcrumpComponentProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/breadcrump/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/breadcrump/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/button/ButtonCustomProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/button/ButtonCustomProps.ts" afterDir="false" />
-    </list>
+    <list default="true" id="c176395c-6e4f-4a9d-b671-a1528532303d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +15,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2ZZF8gWad6dYZnVEJsYcVfm0NZv" />
   <component name="ProjectLevelVcsManager">
@@ -49,7 +33,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "D:/UpSkill/Web/Binar Academy/Challenge/Car Management/Car Management API/Frontend",
+    "last_opened_file_path": "D:/UpSkill/Web/Binar Academy/Challenge/Car Management/Car Management API",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs.jest.jest_package": "D:/UpSkill/Web/Binar Academy/Challenge/Car Management/Car Management API/Frontend/node_modules/react-scripts",
     "nodejs_package_manager_path": "npm",
     "show.migrate.to.gradle.popup": "false",
@@ -87,6 +75,7 @@
       <updated>1702621536430</updated>
       <workItem from="1702621537766" duration="16000" />
       <workItem from="1702655364213" duration="121000" />
+      <workItem from="1703388332322" duration="3684000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,22 @@
+#
+name: fly.io Backend deployment
+
+# integration berjalan ketika apa
+on:
+  push:
+      branches:
+          - master
+          - Challenge_8
+jobs:
+    deploy:
+        name: deploy app using fly.io
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: "./Backend"
+        steps:
+          - uses: actions/checkout@v3
+          - uses: superfly/flyctl-actions/setup-flyctl@master
+          - run: flyctl deploy --remote-only
+            env:
+              FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

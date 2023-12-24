@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## URL:
+### Backend: https://binar-car-backend.fly.dev
+### Frontend: https://binar-car-fadhlih.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:

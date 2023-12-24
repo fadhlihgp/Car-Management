@@ -1,3 +1,3 @@
 # URL:
 ## Backend: https://binar-car-backend.fly.dev
-## Frontend: 
+## Frontend: https://binar-car-fadhlih.netlify.app/

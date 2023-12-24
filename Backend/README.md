@@ -2,6 +2,10 @@
 
 The application for manage the cars
 
+## URL:
+### Backend: https://binar-car-backend.fly.dev
+### Frontend: https://binar-car-fadhlih.netlify.app/
+
 ## Database Design
 
 https://dbdiagram.io/d/65478fca7d8bbd6465837c0c
