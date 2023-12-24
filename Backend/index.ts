@@ -36,9 +36,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // ########################### Routing ###################################
 app.get("/", (_, res: Response) => {
-	res.send("Express + TypeScript Server");
+	res.send("Binar Car API");
 });
-  
+
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/api/v1", authRouter);
 app.use("/api/v1", carRouterNoAuth);
